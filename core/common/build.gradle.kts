@@ -3,9 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
-
 android {
-    namespace = "com.zhiroke.core.components"
+    namespace = "com.zhiroke.core.common"
     compileSdk = Configs.compileSdk
 
     defaultConfig {
@@ -38,9 +37,7 @@ dependencies {
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.AndroidX.activityCompose)
     implementation(Libs.Lifecycle.lifecycleKtx)
-    implementation(Libs.Compose.ui)
-    implementation(Libs.Compose.toolingPreview)
-    implementation(Libs.Compose.material3)
+    implementation(Libs.Coroutines.core)
     androidTestImplementation(Libs.Test.androidJUnit)
     androidTestImplementation(Libs.Test.espresso)
     androidTestImplementation(Libs.Compose.testJunit4)

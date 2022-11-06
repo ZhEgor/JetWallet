@@ -34,10 +34,19 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.appcompat:appcompat:1.5.1")
-    implementation("com.google.android.material:material:1.7.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation(project(":domain"))
+    implementation(project(":core:common"))
+    implementation(project(":core:components"))
+    implementation(project(":core:navigation"))
+    implementation(project(":core:theme"))
+
+    implementation(Libs.AndroidX.coreKtx)
+    implementation(Libs.AndroidX.activityCompose)
+    implementation(Libs.Lifecycle.lifecycleKtx)
+    implementation(Libs.Compose.ui)
+    implementation(Libs.Compose.toolingPreview)
+    implementation(Libs.Compose.material3)
+    androidTestImplementation(Libs.Test.androidJUnit)
+    androidTestImplementation(Libs.Test.espresso)
+    androidTestImplementation(Libs.Compose.testJunit4)
 }
