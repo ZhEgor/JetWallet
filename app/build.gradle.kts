@@ -27,17 +27,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.2"
+        kotlinCompilerExtensionVersion = Versions.composeCompiler
     }
     packagingOptions {
         resources {
@@ -47,12 +47,18 @@ android {
 }
 
 dependencies {
+    implementation(project(":features:mywallet"))
+    implementation(project(":core:navigation"))
+    implementation(project(":core:theme"))
+
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.AndroidX.activityCompose)
-    implementation(Libs.Lifecycle.lifecycleKtx)
+    implementation(Libs.Lifecycle.runtimeKtx)
     implementation(Libs.Compose.ui)
     implementation(Libs.Compose.toolingPreview)
     implementation(Libs.Compose.material3)
+    implementation(Libs.Koin.core)
+    implementation(Libs.Koin.android)
     testImplementation(Libs.Test.jUnit)
     androidTestImplementation(Libs.Test.androidJUnit)
     androidTestImplementation(Libs.Test.espresso)

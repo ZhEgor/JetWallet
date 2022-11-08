@@ -24,11 +24,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 
@@ -36,8 +36,9 @@ dependencies {
 
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.AndroidX.activityCompose)
-    implementation(Libs.Lifecycle.lifecycleKtx)
+    implementation(Libs.Lifecycle.runtimeKtx)
     implementation(Libs.Coroutines.core)
+    testImplementation(Libs.Test.jUnit)
     androidTestImplementation(Libs.Test.androidJUnit)
     androidTestImplementation(Libs.Test.espresso)
     androidTestImplementation(Libs.Compose.testJunit4)

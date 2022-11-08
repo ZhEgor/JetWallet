@@ -10,7 +10,11 @@ import com.zhiroke.features.mywallet.presentation.CardCarouselState
 
 internal class LoadCardsInteractor : BaseInteractor<CardCarouselState, CardCarouselEvent>, ErrorInteractor {
 
-    override suspend fun invoke(state: CardCarouselState, event: CardCarouselEvent) = tryCatch {
+    override suspend fun invoke(state: CardCarouselState, event: CardCarouselEvent) = tryCatch(
+        onFailureHandler = { e ->
+            CardCarouselEvent.FailedToLoadCards(errorMessage = e.message)
+        }
+    ) {
         CardCarouselEvent.LoadedCards(cards = getCardsFromDummyRepo())
     }
 
@@ -18,19 +22,19 @@ internal class LoadCardsInteractor : BaseInteractor<CardCarouselState, CardCarou
 
     private suspend fun getCardsFromDummyRepo(): StableList<BankCard> = stableListOf(
         BankCard(
-            number = "1234123412341234",
+            number = "1111123412341234",
             cardholderName = "Someone1",
             expirationDate = "12/08",
             verificationNumber = "892",
         ),
         BankCard(
-            number = "1234123412341234",
+            number = "2222123412341234",
             cardholderName = "Someone2",
             expirationDate = "12/08",
             verificationNumber = "892",
         ),
         BankCard(
-            number = "1234123412341234",
+            number = "3333123412341234",
             cardholderName = "Someone2",
             expirationDate = "12/08",
             verificationNumber = "892",
