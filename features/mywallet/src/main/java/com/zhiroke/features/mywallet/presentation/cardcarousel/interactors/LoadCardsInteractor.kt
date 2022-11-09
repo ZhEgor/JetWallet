@@ -1,12 +1,12 @@
-package com.zhiroke.features.mywallet.presentation.interactors
+package com.zhiroke.features.mywallet.presentation.cardcarousel.interactors
 
 import com.zhiroke.core.common.base.BaseInteractor
 import com.zhiroke.core.common.base.error.ErrorInteractor
 import com.zhiroke.core.components.utils.StableList
 import com.zhiroke.core.components.utils.stableListOf
 import com.zhiroke.domain.models.BankCard
-import com.zhiroke.features.mywallet.presentation.CardCarouselEvent
-import com.zhiroke.features.mywallet.presentation.CardCarouselState
+import com.zhiroke.features.mywallet.presentation.cardcarousel.CardCarouselEvent
+import com.zhiroke.features.mywallet.presentation.cardcarousel.CardCarouselState
 
 internal class LoadCardsInteractor : BaseInteractor<CardCarouselState, CardCarouselEvent>, ErrorInteractor {
 

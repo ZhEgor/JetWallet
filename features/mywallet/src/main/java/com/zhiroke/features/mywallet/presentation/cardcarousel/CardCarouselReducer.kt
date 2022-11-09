@@ -1,4 +1,4 @@
-package com.zhiroke.features.mywallet.presentation
+package com.zhiroke.features.mywallet.presentation.cardcarousel
 
 import com.zhiroke.core.common.base.BaseEvent
 import com.zhiroke.core.common.base.BaseReducer

@@ -1,4 +1,4 @@
-package com.zhiroke.features.mywallet.presentation
+package com.zhiroke.features.mywallet.presentation.cardcarousel
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -15,13 +15,13 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun CardCarouselScreen() {
-    CardCarouselScreenImpl(viewModel = getViewModel())
+fun CardCarouselRoute() {
+    CardCarouselScreen(viewModel = getViewModel())
 }
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
-private fun CardCarouselScreenImpl(viewModel: CardCarouselViewModel) {
+private fun CardCarouselScreen(viewModel: CardCarouselViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     Text(text = "Hello World!")
@@ -39,5 +39,5 @@ private fun CardCarouselScreenImpl(viewModel: CardCarouselViewModel) {
 @Preview
 @Composable
 private fun CardCarouselScreenPreview() {
-    CardCarouselScreenImpl(viewModel = getDummyCardCarouselViewModel())
+    CardCarouselScreen(viewModel = getDummyCardCarouselViewModel())
 }

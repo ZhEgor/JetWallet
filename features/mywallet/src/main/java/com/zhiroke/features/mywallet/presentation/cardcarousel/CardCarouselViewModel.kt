@@ -1,4 +1,4 @@
-package com.zhiroke.features.mywallet.presentation
+package com.zhiroke.features.mywallet.presentation.cardcarousel
 
 import androidx.annotation.RestrictTo
 import com.zhiroke.core.common.base.BaseEvent
@@ -9,7 +9,7 @@ import com.zhiroke.core.common.base.error.ErrorState
 import com.zhiroke.core.components.utils.StableList
 import com.zhiroke.core.components.utils.emptyStableList
 import com.zhiroke.domain.models.BankCard
-import com.zhiroke.features.mywallet.presentation.interactors.LoadCardsInteractor
+import com.zhiroke.features.mywallet.presentation.cardcarousel.interactors.LoadCardsInteractor
 
 internal data class CardCarouselState(
     override val errorMessage: String?,
