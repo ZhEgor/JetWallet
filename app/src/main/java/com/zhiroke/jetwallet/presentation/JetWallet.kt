@@ -6,12 +6,15 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
+import com.zhiroke.core.navigation.utils.setNavControllerIntoDi
 import com.zhiroke.jetwallet.navigation.NavigationGraph
 import com.zhiroke.jetwallet.ui.theme.JetWalletTheme
+
 
 @Composable
 internal fun JetWallet() {
     val navController = rememberNavController()
+    setNavControllerIntoDi(navController = navController)
 
     JetWalletTheme {
         // A surface container using the 'background' color from the theme

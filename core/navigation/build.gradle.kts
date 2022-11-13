@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
 }
+//apply<plugins.KotlinAndroidConfigurationPlugin>() //TODO: Finalize
 
 android {
     namespace = "com.zhiroke.core.navigation"
@@ -35,7 +36,6 @@ android {
 dependencies {
 
     implementation(Libs.AndroidX.coreKtx)
-    implementation(Libs.Compose.ui)
     implementation(Libs.Koin.core)
-    implementation(Libs.Koin.compose)
+    implementation(Libs.Navigation.navigationCompose)
 }

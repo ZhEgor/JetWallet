@@ -2,7 +2,7 @@ object Libs {
 
     object AndroidX {
         const val coreKtx = "androidx.core:core-ktx:1.9.0"
-        const val appCompat = "androidx.appcompat:appcompat:1.4.1"
+        const val appCompat = "androidx.appcompat:appcompat:1.5.1"
         const val activityCompose = "androidx.activity:activity-compose:1.6.1"
     }
 
@@ -28,7 +28,6 @@ object Libs {
     object Koin {
         const val core = "io.insert-koin:koin-core:${Versions.koin}"
         const val android = "io.insert-koin:koin-android:${Versions.koin}"
-        const val androidExt = "io.insert-koin:koin-android-ext:${Versions.koin}"
         const val compose = "io.insert-koin:koin-androidx-compose:${Versions.koin}"
     }
 
