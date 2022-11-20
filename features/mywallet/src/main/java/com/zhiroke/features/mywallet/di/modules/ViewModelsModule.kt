@@ -4,7 +4,7 @@ import com.zhiroke.features.mywallet.presentation.cardcarousel.CardCarouselViewM
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
 
-internal val viewModelsModule = module {
+internal val viewModelsModule get() = module {
 
     viewModelOf(::CardCarouselViewModel)
 

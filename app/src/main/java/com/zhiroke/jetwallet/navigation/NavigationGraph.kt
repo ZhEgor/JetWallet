@@ -10,7 +10,7 @@ import com.zhiroke.jetwallet.navigation.subgraphs.myWalletGraph
 @Composable
 fun NavigationGraph(
     navController: NavHostController,
-    startDestination: String = MyWalletNavDirections.splash.destination,
+    startDestination: String = MyWalletNavDirections.cardCarousel.destination,
     modifier: Modifier = Modifier
 ) {
     NavHost(navController = navController, startDestination = startDestination, modifier = modifier) {

@@ -1,4 +1,4 @@
-package com.zhiroke.jetwallet.presentation
+package com.zhiroke.jetwallet.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme

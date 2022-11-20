@@ -4,7 +4,7 @@ import com.zhiroke.features.mywallet.presentation.cardcarousel.interactors.LoadC
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 
-internal val interactorsModule = module {
+internal val interactorsModule get() = module {
 
     factoryOf(::LoadCardsInteractor)
 

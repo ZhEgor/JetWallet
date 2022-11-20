@@ -3,7 +3,7 @@ package com.zhiroke.jetwallet
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.zhiroke.jetwallet.presentation.JetWallet
+import com.zhiroke.jetwallet.ui.JetWallet
 
 class MainActivity : ComponentActivity() {
 

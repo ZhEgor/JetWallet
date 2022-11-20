@@ -4,7 +4,7 @@ import com.zhiroke.features.mywallet.presentation.cardcarousel.CardCarouselReduc
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 
-internal val reducersModule = module {
+internal val reducersModule get() = module {
 
     factoryOf(::CardCarouselReducer)
 
