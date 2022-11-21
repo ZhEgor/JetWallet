@@ -31,7 +31,7 @@ abstract class BaseViewModel<State: BaseState, Event : BaseEvent>(
                     }
                 )
             }
-            Log.d("JET_WALLET_TAG", "sendEvent(event = $event)")
+            Log.d("JET_TAG", "sendEvent(event = $event)")
             deferred.forEach { it.await() }
         }
     }

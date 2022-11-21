@@ -1,9 +1,8 @@
 package com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -13,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.zhiroke.core.common.utils.rememberLambda
 import com.zhiroke.core.theme.demensions.dp_12
 import com.zhiroke.domain.models.BankCard
 
@@ -22,7 +20,7 @@ import com.zhiroke.domain.models.BankCard
  * Aspect ratio of a European bank card
  */
 @Composable
-internal fun FrontSideCard(bankCard: BankCard, onCopyNumber: ((String) -> Unit)? = null) {
+internal fun FrontSideCard(bankCard: BankCard) {
 
     key(bankCard.number) {
 
@@ -30,13 +28,8 @@ internal fun FrontSideCard(bankCard: BankCard, onCopyNumber: ((String) -> Unit)?
             modifier = Modifier
                 .clip(shape = RoundedCornerShape(dp_12))
                 .fillMaxWidth()
-                .fillMaxHeight(fraction = 0.647f)
-                .background(color = Color.LightGray)
-                .clickable(
-                    onClick = rememberLambda {
-                        onCopyNumber?.invoke(bankCard.number)
-                    }
-                ),
+                .aspectRatio(1.647f)
+                .background(color = Color.LightGray),
             bankCard = bankCard
         )
     }

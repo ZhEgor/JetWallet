@@ -25,7 +25,8 @@ import com.zhiroke.features.mywallet.utils.roundUpToMultipleOf
 fun RotatingCardWrapper( // ToDo: finalize
     modifier: Modifier = Modifier,
     initialIsFrontSide: Boolean = true,
-    cardContent: @Composable (isFrontSide: Boolean) -> Unit,
+    onLongPress: ((isFront: Boolean) -> Unit)? = null,
+    cardContent: @Composable (isFrontSide: Boolean) -> Unit
 ) {
     var isFrontSide by remember { mutableStateOf(initialIsFrontSide) }
     var isRotating by remember { mutableStateOf(false) }
@@ -59,8 +60,7 @@ fun RotatingCardWrapper( // ToDo: finalize
             }
         }
     }
-    val onDrag: (PointerInputChange, Offset) -> Unit = { change, dragAmount ->
-//        change.consume()
+    val onDrag: (PointerInputChange, Offset) -> Unit = { _, dragAmount ->
         when {
             dragAmount.x > 0 && rotateY < 3f -> rotateY += 0.5f
             dragAmount.x < 0 && rotateY > -3f -> rotateY -= 0.5f
@@ -78,6 +78,9 @@ fun RotatingCardWrapper( // ToDo: finalize
         rotateX = rotateX,
         rotateY = rotateY,
         onDrag = onDrag,
+        onLongPress = {
+            onLongPress?.invoke(isFrontSide)
+        },
         onDoubleTap = onDoubleTap,
         onGloballyPositioned = onGloballyPositioned,
         cardContent = {

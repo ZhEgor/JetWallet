@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.zhiroke.core.theme.demensions.dp_4
+import com.zhiroke.core.theme.demensions.dp_12
 import com.zhiroke.core.theme.demensions.dp_8
 import com.zhiroke.domain.models.BankCard
 
@@ -31,9 +31,9 @@ internal fun BackSideCard(bankCard: BankCard) {
 
         StatelessBackSideCard(
             modifier = Modifier
-                .clip(shape = RoundedCornerShape(dp_4))
+                .clip(shape = RoundedCornerShape(dp_12))
                 .fillMaxWidth()
-                .aspectRatio(ratio = 0.647f)
+                .aspectRatio(1.647f)
                 .background(color = Color.LightGray),
             bankCard = bankCard
         )
