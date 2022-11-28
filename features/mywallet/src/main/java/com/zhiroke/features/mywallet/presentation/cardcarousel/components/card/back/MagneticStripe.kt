@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import com.zhiroke.core.theme.demensions.dp_16
+import com.zhiroke.core.theme.color.Black
+import com.zhiroke.core.theme.demensions.dp_48
 
 
 @Composable
@@ -16,7 +16,7 @@ internal fun MagneticStripe(modifier: Modifier = Modifier) {
     Spacer(
         modifier = modifier
             .fillMaxWidth()
-            .height(dp_16)
-            .background(Color.Black)
+            .height(dp_48)
+            .background(Black)
     )
 }

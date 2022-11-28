@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:common"))
+    implementation(project(":core:theme"))
 
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.AndroidX.activityCompose)

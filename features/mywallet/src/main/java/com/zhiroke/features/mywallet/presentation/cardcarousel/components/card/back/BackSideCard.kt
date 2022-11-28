@@ -14,10 +14,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.key
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.tooling.preview.Preview
 import com.zhiroke.core.theme.demensions.dp_12
 import com.zhiroke.core.theme.demensions.dp_8
+import com.zhiroke.core.theme.utils.MaterialColor
 import com.zhiroke.domain.models.BankCard
 
 
@@ -34,7 +35,8 @@ internal fun BackSideCard(bankCard: BankCard) {
                 .clip(shape = RoundedCornerShape(dp_12))
                 .fillMaxWidth()
                 .aspectRatio(1.647f)
-                .background(color = Color.LightGray),
+                .background(color = MaterialColor.primaryContainer)
+                .graphicsLayer(rotationY = 180f),
             bankCard = bankCard
         )
     }

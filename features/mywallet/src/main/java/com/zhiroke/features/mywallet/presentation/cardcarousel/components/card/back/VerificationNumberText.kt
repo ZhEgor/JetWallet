@@ -7,5 +7,6 @@ import androidx.compose.ui.Modifier
 
 @Composable
 internal fun VerificationNumberText(modifier: Modifier = Modifier, number: String) {
+
     Text(modifier = modifier, text = number)
 }

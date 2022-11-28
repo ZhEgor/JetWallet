@@ -12,7 +12,7 @@ import androidx.compose.ui.input.pointer.PointerInputChange
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
-import com.zhiroke.core.components.utils.ifThen
+import com.zhiroke.core.common.utils.ifNotNullThen
 
 
 @Composable
@@ -31,21 +31,22 @@ fun StatelessCardWrapper(
 
         Box(
             modifier = Modifier
-                .ifThen(predicate = onGloballyPositioned != null) {
-                    onGloballyPositioned(onGloballyPositioned = onGloballyPositioned!!) // Android Studio bug
-                }
                 .pointerInput(Unit) {
                     detectTapGestures(onDoubleTap = onDoubleTap, onLongPress = onLongPress)
                 }
-                .ifThen(predicate = onDrag != null) {
+                .ifNotNullThen(value = onGloballyPositioned) { onGloballyPositioned ->
+                    onGloballyPositioned(onGloballyPositioned = onGloballyPositioned) // Android Studio bug
+                }
+                .ifNotNullThen(value = onDrag) { onDrag ->
                     pointerInput(Unit) {
-                        detectDragGestures(onDrag = onDrag!!)
+                        detectDragGestures(onDrag = onDrag)
                     }
                 }
                 .graphicsLayer {
                     transformOrigin = TransformOrigin(0.5f, 0.5f)
                     rotationX = rotateX
                     rotationY = rotateY
+                    cameraDistance = 8f * density
                 }
         ) {
 

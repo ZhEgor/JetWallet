@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import com.zhiroke.core.theme.demensions.dp_12
+import com.zhiroke.core.theme.color.Gray
+import com.zhiroke.core.theme.demensions.dp_24
 
 
 @Composable
@@ -16,7 +16,7 @@ internal fun AuthorizedSignatureStripe(modifier: Modifier = Modifier) {
     Spacer(
         modifier = modifier
             .fillMaxWidth()
-            .height(dp_12)
-            .background(Color.Gray)
+            .height(dp_24)
+            .background(Gray)
     )
 }
