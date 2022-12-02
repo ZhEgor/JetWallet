@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.zhiroke.core.common.utils.rememberLambda
 import com.zhiroke.core.theme.demensions.dp_16
+import com.zhiroke.core.theme.demensions.dp_32
 import com.zhiroke.domain.models.BankCard
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.BackSideCard
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.FrontSideCard
@@ -19,7 +20,7 @@ fun BankCard(card: BankCard, onCopy: (String) -> Unit) {
     RotatingCardWrapper(
         modifier = Modifier
             .wrapContentSize()
-            .padding(all = dp_16),
+            .padding(horizontal = dp_16, vertical = dp_32),
         onLongPress = rememberLambda { isFrontSide ->
             if (isFrontSide) {
                 onCopy.invoke(card.number)

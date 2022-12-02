@@ -7,5 +7,6 @@ object Versions {
     const val lifecycle = "2.6.0-alpha01"
     const val compose = "1.2.1"
     const val composeCompiler = "1.3.2"
+    const val accompanistPager = "0.28.0"
     const val material3 = "1.1.0-alpha02"
 }

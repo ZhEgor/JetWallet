@@ -43,13 +43,6 @@ private fun StatelessFrontSideCard(modifier: Modifier = Modifier, bankCard: Bank
 
     Box(modifier = modifier) {
 
-//        Image(
-//            modifier = Modifier.fillMaxSize(),
-//            contentScale = ContentScale.FillBounds,
-//            painter = painterResource(id = R.drawable.test_card_background),
-//            contentDescription = null
-//        )
-
         CardNumberContainer(
             modifier = Modifier.align(alignment = Alignment.Center),
             number = bankCard.number

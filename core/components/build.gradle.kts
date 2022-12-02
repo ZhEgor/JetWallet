@@ -47,8 +47,12 @@ dependencies {
     implementation(Libs.AndroidX.activityCompose)
     implementation(Libs.Lifecycle.runtimeKtx)
     implementation(Libs.Compose.ui)
+    implementation(Libs.Compose.uiUtils)
     implementation(Libs.Compose.toolingPreview)
     implementation(Libs.Compose.material3)
+    implementation(Libs.Compose.accompanistPager)
+    implementation(Libs.Compose.accompanistPagerIndicator)
+
     testImplementation(Libs.Test.jUnit)
     androidTestImplementation(Libs.Test.androidJUnit)
     androidTestImplementation(Libs.Test.espresso)

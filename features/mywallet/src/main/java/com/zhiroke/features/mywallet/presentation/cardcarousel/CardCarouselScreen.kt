@@ -1,23 +1,29 @@
 package com.zhiroke.features.mywallet.presentation.cardcarousel
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.google.accompanist.pager.ExperimentalPagerApi
 import com.zhiroke.core.common.utils.copyToClipboardWithVibration
+import com.zhiroke.core.components.pager.HorizontalPagerWithTransition
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.BankCard
 import org.koin.androidx.compose.getViewModel
 
 
 @Composable
 fun CardCarouselRoute() {
+
     CardCarouselScreen(viewModel = getViewModel())
 }
 
-@OptIn(ExperimentalLifecycleComposeApi::class)
+@OptIn(ExperimentalLifecycleComposeApi::class, ExperimentalPagerApi::class)
 @Composable
 private fun CardCarouselScreen(viewModel: CardCarouselViewModel) {
 
@@ -27,7 +33,16 @@ private fun CardCarouselScreen(viewModel: CardCarouselViewModel) {
     Box {
 
         if (!state.areCardsLoading) {
-            BankCard(card = state.cards.first(), onCopy = context::copyToClipboardWithVibration)
+
+            HorizontalPagerWithTransition(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight(),
+                count = state.cards.size
+            ) { page ->
+
+                BankCard(card = state.cards[page], onCopy = context::copyToClipboardWithVibration)
+            }
         }
     }
 }
@@ -35,5 +50,6 @@ private fun CardCarouselScreen(viewModel: CardCarouselViewModel) {
 @Preview
 @Composable
 private fun CardCarouselScreenPreview() {
+
     CardCarouselScreen(viewModel = getDummyCardCarouselViewModel())
 }

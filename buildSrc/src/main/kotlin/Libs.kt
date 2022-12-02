@@ -8,11 +8,13 @@ object Libs {
 
     object Compose {
         const val ui = "androidx.compose.ui:ui:${Versions.compose}"
+        const val uiUtils = "androidx.compose.ui:ui-util:${Versions.compose}"
         const val materialIconsExtended = "androidx.compose.material:material-icons-extended:${Versions.compose}"
         const val material3 = "androidx.compose.material3:material3:${Versions.material3}"
         const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
         const val tooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
-        const val accompanistPager = "com.google.accompanist:accompanist-pager:0.12.0"
+        const val accompanistPager = "com.google.accompanist:accompanist-pager:${Versions.accompanistPager}"
+        const val accompanistPagerIndicator = "com.google.accompanist:accompanist-pager-indicators:${Versions.accompanistPager}"
         const val testJunit4 = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
         const val testManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
     }

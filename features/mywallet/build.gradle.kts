@@ -53,9 +53,11 @@ dependencies {
     implementation(Libs.Compose.ui)
     implementation(Libs.Compose.toolingPreview)
     implementation(Libs.Compose.material3)
+    implementation(Libs.Compose.accompanistPager)
     implementation(Libs.Koin.core)
     implementation(Libs.Koin.android)
     implementation(Libs.Koin.compose)
+
     testImplementation(Libs.Test.jUnit)
     androidTestImplementation(Libs.Test.androidJUnit)
     androidTestImplementation(Libs.Test.espresso)
