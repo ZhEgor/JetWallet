@@ -6,6 +6,7 @@ import com.zhiroke.core.common.base.BaseState
 import com.zhiroke.core.common.base.BaseViewModel
 import com.zhiroke.core.common.base.error.ErrorEvent
 import com.zhiroke.core.common.base.error.ErrorState
+import com.zhiroke.core.components.popup.PopUpState
 import com.zhiroke.core.components.utils.StableList
 import com.zhiroke.core.components.utils.emptyStableList
 import com.zhiroke.domain.models.BankCard
@@ -15,6 +16,7 @@ internal data class CardCarouselState(
     override val errorMessage: String?,
     val areCardsLoading: Boolean,
     val cards: StableList<BankCard>,
+    val createCardPopUp: PopUpState
 ) : BaseState, ErrorState {
 
     companion object {
@@ -22,14 +24,16 @@ internal data class CardCarouselState(
             areCardsLoading = false,
             errorMessage = null,
             cards = emptyStableList(),
+            createCardPopUp = PopUpState.initialState()
         )
     }
 }
 
 internal sealed interface CardCarouselEvent : BaseEvent {
     object LoadCards : CardCarouselEvent
-    data class LoadedCards(val cards: StableList<BankCard>) : CardCarouselEvent
-    data class FailedToLoadCards(override val errorMessage: String?) : CardCarouselEvent, ErrorEvent
+    class LoadedCards(val cards: StableList<BankCard>) : CardCarouselEvent
+    class FailedToLoadCards(override val errorMessage: String?) : CardCarouselEvent, ErrorEvent
+    class ChangeStateOfCreatePopUp(val show: Boolean) : CardCarouselEvent
 }
 
 internal class CardCarouselViewModel(
@@ -43,9 +47,11 @@ internal class CardCarouselViewModel(
         loadCards()
     }
 
-    private fun loadCards() {
-        sendEvent(event = CardCarouselEvent.LoadCards)
-    }
+    private fun loadCards() = sendEvent(event = CardCarouselEvent.LoadCards)
+
+    fun showPopUpCreate() = sendEvent(event = CardCarouselEvent.ChangeStateOfCreatePopUp(show = true))
+
+    fun hidePopUpCreate() = sendEvent(event = CardCarouselEvent.ChangeStateOfCreatePopUp(show = false))
 }
 
 /** This function is used only for compose preview. */

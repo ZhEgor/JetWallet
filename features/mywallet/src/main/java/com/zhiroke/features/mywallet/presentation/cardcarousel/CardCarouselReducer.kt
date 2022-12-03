@@ -13,6 +13,7 @@ internal class CardCarouselReducer : BaseReducer<CardCarouselState> {
                 CardCarouselEvent.LoadCards -> copy(areCardsLoading = true)
                 is CardCarouselEvent.LoadedCards -> copy(cards = event.cards, areCardsLoading = false)
                 is CardCarouselEvent.FailedToLoadCards -> copy(errorMessage = event.errorMessage)
+                is CardCarouselEvent.ChangeStateOfCreatePopUp -> copy(createCardPopUp = createCardPopUp.copy(isShown = event.show))
                 else -> throw IllegalArgumentException("Unsupported Event!")
             }
         }
