@@ -11,6 +11,8 @@ import com.zhiroke.core.components.utils.StableList
 import com.zhiroke.core.components.utils.emptyStableList
 import com.zhiroke.domain.models.BankCard
 import com.zhiroke.features.mywallet.presentation.cardcarousel.interactors.LoadCardsInteractor
+import com.zhiroke.features.mywallet.presentation.cardcarousel.popups.RawBankCard
+import kotlinx.coroutines.flow.Flow
 
 internal data class CardCarouselState(
     override val errorMessage: String?,
@@ -31,9 +33,11 @@ internal data class CardCarouselState(
 
 internal sealed interface CardCarouselEvent : BaseEvent {
     object LoadCards : CardCarouselEvent
-    class LoadedCards(val cards: StableList<BankCard>) : CardCarouselEvent
+    class LoadedCards(val cards: Flow<StableList<BankCard>>) : CardCarouselEvent
     class FailedToLoadCards(override val errorMessage: String?) : CardCarouselEvent, ErrorEvent
     class ChangeStateOfCreatePopUp(val show: Boolean) : CardCarouselEvent
+    class AddCard(val rawBankCard: RawBankCard) : CardCarouselEvent
+    object AddedCardSuccessfully : CardCarouselEvent
 }
 
 internal class CardCarouselViewModel(
@@ -52,6 +56,8 @@ internal class CardCarouselViewModel(
     fun showPopUpCreate() = sendEvent(event = CardCarouselEvent.ChangeStateOfCreatePopUp(show = true))
 
     fun hidePopUpCreate() = sendEvent(event = CardCarouselEvent.ChangeStateOfCreatePopUp(show = false))
+
+    fun addBankCard(rawBankCard: RawBankCard) = sendEvent(event = CardCarouselEvent.AddCard(rawBankCard = rawBankCard))
 }
 
 /** This function is used only for compose preview. */

@@ -16,7 +16,7 @@ import com.zhiroke.core.common.utils.copyToClipboardWithVibration
 import com.zhiroke.core.components.pager.HorizontalPagerWithTransition
 import com.zhiroke.features.mywallet.presentation.cardcarousel.button.AddCardButton
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.BankCard
-import com.zhiroke.features.mywallet.presentation.cardcarousel.popups.CreateCardPopUp
+import com.zhiroke.features.mywallet.presentation.cardcarousel.popups.AddCardPopUp
 import org.koin.androidx.compose.getViewModel
 
 
@@ -50,7 +50,7 @@ private fun CardCarouselScreen(viewModel: CardCarouselViewModel) {
 
         AddCardButton(onClick = viewModel::showPopUpCreate)
 
-        CreateCardPopUp(popUpState = state.createCardPopUp, onHide = viewModel::hidePopUpCreate)
+        AddCardPopUp(popUpState = state.createCardPopUp, onHide = viewModel::hidePopUpCreate, viewModel::addBankCard)
     }
 }
 

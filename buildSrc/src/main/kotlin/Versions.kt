@@ -1,7 +1,8 @@
 object Versions {
     const val kotlin = "1.6.21"
     const val koin = "3.2.2"
-    const val room = "2.4.2"
+    const val room = "2.4.3"
+    const val sqlcipher = "4.5.0@aar"
     const val navigation = "2.5.0"
     const val coroutines = "1.5.2"
     const val lifecycle = "2.6.0-alpha01"

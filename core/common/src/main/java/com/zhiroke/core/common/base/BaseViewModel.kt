@@ -3,13 +3,10 @@ package com.zhiroke.core.common.base
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 
 abstract class BaseViewModel<State: BaseState, Event : BaseEvent>(
     private val reducer: BaseReducer<State>,
@@ -19,6 +16,7 @@ abstract class BaseViewModel<State: BaseState, Event : BaseEvent>(
     private val _state = MutableStateFlow(reducer.initialState)
     val state: StateFlow<State> get() = _state
 
+    @Suppress("UNCHECKED_CAST")
     protected fun sendEvent(event: Event) {
         // ToDo: add async
         _state.update { state -> reducer.reduce(state = state, event = event) }
@@ -34,5 +32,10 @@ abstract class BaseViewModel<State: BaseState, Event : BaseEvent>(
             Log.d("JET_TAG", "sendEvent(event = $event)")
             deferred.forEach { it.await() }
         }
+    }
+
+    override fun onCleared() {
+        viewModelScope.cancel()
+        super.onCleared()
     }
 }

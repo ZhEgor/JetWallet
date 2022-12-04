@@ -70,6 +70,7 @@ private fun StatelessBackSideCard(modifier: Modifier = Modifier, bankCard: BankC
 private fun BackSideCardPreview() {
     BackSideCard(
         bankCard = BankCard(
+            id = "1",
             number = "1111222233334444",
             cardholderName = "Yehor Zhyr",
             expirationDate = "12/12",

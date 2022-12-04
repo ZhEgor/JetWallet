@@ -39,6 +39,10 @@ object Libs {
         const val compiler = "androidx.room:room-compiler:${Versions.room}"
     }
 
+    object SqlCipher {
+        const val cipher = "net.zetetic:android-database-sqlcipher:${Versions.sqlcipher}"
+    }
+
     object Navigation {
         const val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigation}"
     }

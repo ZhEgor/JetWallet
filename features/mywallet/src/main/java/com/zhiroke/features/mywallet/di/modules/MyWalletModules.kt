@@ -2,10 +2,10 @@ package com.zhiroke.features.mywallet.di.modules
 
 import org.koin.dsl.module
 
-val myWalletModules get() = module {
+fun myWalletModules() = module {
     includes(
-        interactorsModule,
-        reducersModule,
-        viewModelsModule
+        interactorsModule(),
+        reducersModule(),
+        viewModelsModule()
     )
 }

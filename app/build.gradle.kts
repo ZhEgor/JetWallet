@@ -21,7 +21,7 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
@@ -47,9 +47,11 @@ android {
 }
 
 dependencies {
-    implementation(project(":features:mywallet"))
     implementation(project(":core:navigation"))
     implementation(project(":core:theme"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":features:mywallet"))
 
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.AndroidX.activityCompose)
