@@ -11,7 +11,7 @@ internal class CardCarouselReducer : BaseReducer<CardCarouselState> {
         return state.run {
             when(event) {
                 CardCarouselEvent.LoadCards -> copy(areCardsLoading = true)
-                is CardCarouselEvent.LoadedCards -> copy(cards = event.cards, areCardsLoading = false) // ToDo: Add use case for subscription
+                is CardCarouselEvent.LoadedCards -> copy(cards = event.cards, areCardsLoading = false)
                 is CardCarouselEvent.FailedToLoadCards -> copy(errorMessage = event.errorMessage)
                 is CardCarouselEvent.ChangeStateOfCreatePopUp -> copy(createCardPopUp = createCardPopUp.copy(isShown = event.show))
                 is CardCarouselEvent.AddCard -> this

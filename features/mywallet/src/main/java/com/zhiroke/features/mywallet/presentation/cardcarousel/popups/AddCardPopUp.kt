@@ -50,6 +50,7 @@ internal fun AddCardPopUp(popUpState: PopUpState, onHide: () -> Unit, onAddClick
                 )
                 onAddClick.invoke(rawBankCard)
                 rawBankCard = RawBankCard.initialState()
+                onHide.invoke()
             }
         }
     }

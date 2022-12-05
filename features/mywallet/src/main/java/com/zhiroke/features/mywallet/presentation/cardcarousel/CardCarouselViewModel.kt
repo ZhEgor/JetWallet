@@ -10,9 +10,10 @@ import com.zhiroke.core.components.popup.PopUpState
 import com.zhiroke.core.components.utils.StableList
 import com.zhiroke.core.components.utils.emptyStableList
 import com.zhiroke.domain.models.BankCard
+import com.zhiroke.features.mywallet.presentation.cardcarousel.interactors.AddCardInteractor
 import com.zhiroke.features.mywallet.presentation.cardcarousel.interactors.LoadCardsInteractor
 import com.zhiroke.features.mywallet.presentation.cardcarousel.popups.RawBankCard
-import kotlinx.coroutines.flow.Flow
+
 
 internal data class CardCarouselState(
     override val errorMessage: String?,
@@ -33,7 +34,7 @@ internal data class CardCarouselState(
 
 internal sealed interface CardCarouselEvent : BaseEvent {
     object LoadCards : CardCarouselEvent
-    class LoadedCards(val cards: Flow<StableList<BankCard>>) : CardCarouselEvent
+    class LoadedCards(val cards: StableList<BankCard>) : CardCarouselEvent
     class FailedToLoadCards(override val errorMessage: String?) : CardCarouselEvent, ErrorEvent
     class ChangeStateOfCreatePopUp(val show: Boolean) : CardCarouselEvent
     class AddCard(val rawBankCard: RawBankCard) : CardCarouselEvent
@@ -43,8 +44,9 @@ internal sealed interface CardCarouselEvent : BaseEvent {
 internal class CardCarouselViewModel(
     reducer: CardCarouselReducer,
     loadCardsInteractor: LoadCardsInteractor?,
+    addCardInteractor: AddCardInteractor?,
 ) : BaseViewModel<CardCarouselState, CardCarouselEvent>(
-    reducer = reducer, interactors = setOfNotNull(loadCardsInteractor)
+    reducer = reducer, interactors = setOfNotNull(loadCardsInteractor, addCardInteractor)
 ) {
 
     init {
@@ -57,11 +59,14 @@ internal class CardCarouselViewModel(
 
     fun hidePopUpCreate() = sendEvent(event = CardCarouselEvent.ChangeStateOfCreatePopUp(show = false))
 
-    fun addBankCard(rawBankCard: RawBankCard) = sendEvent(event = CardCarouselEvent.AddCard(rawBankCard = rawBankCard))
+    fun addBankCard(rawBankCard: RawBankCard) {
+        loadCards()
+        sendEvent(event = CardCarouselEvent.AddCard(rawBankCard = rawBankCard))
+    }
 }
 
 /** This function is used only for compose preview. */
 @RestrictTo(RestrictTo.Scope.TESTS)
 internal fun getDummyCardCarouselViewModel(): CardCarouselViewModel {
-    return CardCarouselViewModel(reducer = CardCarouselReducer(), loadCardsInteractor = null)
+    return CardCarouselViewModel(reducer = CardCarouselReducer(), loadCardsInteractor = null, addCardInteractor = null)
 }
