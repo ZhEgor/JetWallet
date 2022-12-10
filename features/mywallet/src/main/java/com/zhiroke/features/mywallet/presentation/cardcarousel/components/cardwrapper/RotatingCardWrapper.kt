@@ -3,6 +3,7 @@ package com.zhiroke.features.mywallet.presentation.cardcarousel.components.cardw
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import com.zhiroke.core.components.cardwrapper.StatelessCardWrapper
@@ -18,7 +19,7 @@ fun RotatingCardWrapper(
     onLongPress: ((isFront: Boolean) -> Unit)? = null,
     cardContent: @Composable (isFrontSide: Boolean) -> Unit
 ) {
-    var isFrontSide by remember { mutableStateOf(initialIsFrontSide) }
+    var isFrontSide by rememberSaveable(initialIsFrontSide) { mutableStateOf(initialIsFrontSide) }
     val rotateX by remember { mutableStateOf(0f) }
     var rotateY by remember { mutableStateOf(0f) }
 

@@ -14,9 +14,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.zhiroke.core.common.utils.copyToClipboardWithVibration
 import com.zhiroke.core.components.pager.HorizontalPagerWithTransition
-import com.zhiroke.features.mywallet.presentation.cardcarousel.button.AddCardButton
+import com.zhiroke.features.mywallet.presentation.cardcarousel.components.button.AddCardButton
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.BankCard
-import com.zhiroke.features.mywallet.presentation.cardcarousel.popups.AddCardPopUp
+import com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups.AddCardPopUp
+import com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups.EditCardPopUp
 import org.koin.androidx.compose.getViewModel
 
 
@@ -44,13 +45,31 @@ private fun CardCarouselScreen(viewModel: CardCarouselViewModel) {
                 count = state.cards.size
             ) { page ->
 
-                BankCard(card = state.cards[page], onCopy = context::copyToClipboardWithVibration)
+                BankCard(
+                    card = state.cards[page],
+                    onCopy = context::copyToClipboardWithVibration,
+                    onEditClick = viewModel::showEditPopUp,
+                    onDeleteClick = viewModel::deleteBankCard
+                )
             }
         }
 
-        AddCardButton(onClick = viewModel::showPopUpCreate)
+        AddCardButton(onClick = viewModel::showAddPopUp)
 
-        AddCardPopUp(popUpState = state.createCardPopUp, onHide = viewModel::hidePopUpCreate, viewModel::addBankCard)
+        AddCardPopUp(
+            popUpState = state.addCardPopUp,
+            onHide = viewModel::hideAddPopUp,
+            onAddClick = viewModel::addBankCard
+        )
+
+        state.cardToEdit?.let { bankCard ->
+            EditCardPopUp(
+                popUpState = state.editCardPopUp,
+                bankCard = bankCard,
+                onHide = viewModel::hideEditPopUp,
+                onSaveClick = viewModel::saveBankCard
+            )
+        }
     }
 }
 

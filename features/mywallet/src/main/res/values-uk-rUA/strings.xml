@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_card_popup_button_add">Додати</string>
+    <string name="edit_card_popup_button_save">Зберегти</string>
+    <string name="card_number_label">Номер картки</string>
+    <string name="expiration_date_label">Термін придатності</string>
+    <string name="cardholder_name_label">Ім\'я власника картки</string>
+    <string name="verification_number_label">Номер підтвердження</string>
+
+</resources>

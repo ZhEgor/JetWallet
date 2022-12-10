@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 
+
 internal class LoadCardsInteractor(private val bankCardRepository: BankCardRepository)
     : SubscriptionInteractor<CardCarouselState, CardCarouselEvent>, SubscriptionErrorInteractor {
 

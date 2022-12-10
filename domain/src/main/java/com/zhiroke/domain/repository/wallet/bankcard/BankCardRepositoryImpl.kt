@@ -17,7 +17,7 @@ internal class BankCardRepositoryImpl(private val bankCardDao: BankCardDao) : Ba
         bankCardDao.update(bankCard.toLocal())
     }
 
-    override suspend fun removeBankCard(bankCard: BankCard) {
+    override suspend fun deleteBankCard(bankCard: BankCard) {
         bankCardDao.deleteBankCardById(id = bankCard.id)
     }
 

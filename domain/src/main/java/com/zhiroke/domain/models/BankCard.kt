@@ -8,7 +8,13 @@ data class BankCard(
     val cardholderName: String,
     val expirationDate: String,
     val verificationNumber: String,
-)
+) {
+
+    companion object {
+
+        fun empty() = BankCard(id = "", number = "", cardholderName = "", expirationDate = "", verificationNumber = "")
+    }
+}
 
 internal fun BankCard.toLocal() = BankCardLocal(
     id = id,

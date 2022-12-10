@@ -13,7 +13,12 @@ import com.zhiroke.core.theme.utils.MaterialShapes
 
 
 @Composable
-fun ButtonText(modifier: Modifier = Modifier, text: String, onClick: () -> Unit) {
+fun ButtonText(
+    modifier: Modifier = Modifier,
+    text: String,
+    enabled: Boolean = true,
+    onClick: () -> Unit,
+) {
 
     val buttonColors = ButtonDefaults.buttonColors(
         containerColor = MaterialColor.secondary,
@@ -24,7 +29,8 @@ fun ButtonText(modifier: Modifier = Modifier, text: String, onClick: () -> Unit)
         modifier = modifier,
         colors = buttonColors,
         shape = MaterialShapes.small,
-        onClick = onClick
+        onClick = onClick,
+        enabled = enabled,
     ) {
 
         Text(text = text)
@@ -32,9 +38,19 @@ fun ButtonText(modifier: Modifier = Modifier, text: String, onClick: () -> Unit)
 }
 
 @Composable
-fun ButtonText(modifier: Modifier = Modifier, @StringRes stringResId: Int, onClick: () -> Unit) {
+fun ButtonText(
+    modifier: Modifier = Modifier,
+    @StringRes textResId: Int,
+    onClick: () -> Unit,
+    enabled: Boolean = true,
+) {
 
-    ButtonText(modifier = modifier, text = stringResource(id = stringResId), onClick = onClick)
+    ButtonText(
+        modifier = modifier,
+        text = stringResource(id = textResId),
+        onClick = onClick,
+        enabled = enabled,
+    )
 }
 
 @Preview

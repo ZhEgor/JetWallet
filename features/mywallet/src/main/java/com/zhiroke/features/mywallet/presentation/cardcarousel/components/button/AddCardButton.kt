@@ -1,4 +1,4 @@
-package com.zhiroke.features.mywallet.presentation.cardcarousel.button
+package com.zhiroke.features.mywallet.presentation.cardcarousel.components.button
 
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.PaddingValues

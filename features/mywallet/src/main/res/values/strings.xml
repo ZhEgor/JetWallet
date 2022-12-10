@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_card_popup_button_add">Add</string>
+    <string name="edit_card_popup_button_save">Save</string>
+    <string name="card_number_label">Card number</string>
+    <string name="expiration_date_label">Expiration date</string>
+    <string name="cardholder_name_label">Cardholder name</string>
+    <string name="verification_number_label">Verification number</string>
+
+</resources>

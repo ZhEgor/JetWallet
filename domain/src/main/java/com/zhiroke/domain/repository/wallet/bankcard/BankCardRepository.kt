@@ -9,7 +9,7 @@ interface BankCardRepository {
 
     suspend fun updateBankCard(bankCard: BankCard)
 
-    suspend fun removeBankCard(bankCard: BankCard)
+    suspend fun deleteBankCard(bankCard: BankCard)
 
     fun fetchAll(): Flow<List<BankCard>>
 }

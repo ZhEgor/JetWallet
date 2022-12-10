@@ -2,14 +2,12 @@ package com.zhiroke.features.mywallet.presentation.cardcarousel.interactors
 
 import com.zhiroke.core.common.base.SuspendableInteractor
 import com.zhiroke.core.common.base.error.SuspendableErrorInteractor
-import com.zhiroke.domain.models.BankCard
 import com.zhiroke.domain.repository.wallet.bankcard.BankCardRepository
 import com.zhiroke.features.mywallet.presentation.cardcarousel.CardCarouselEvent
 import com.zhiroke.features.mywallet.presentation.cardcarousel.CardCarouselState
-import java.util.*
 
 
-internal class AddCardInteractor(private val bankCardRepository: BankCardRepository) :
+internal class DeleteCardInteractor(private val bankCardRepository: BankCardRepository) :
     SuspendableInteractor<CardCarouselState, CardCarouselEvent>, SuspendableErrorInteractor {
 
     override suspend fun invoke(state: CardCarouselState, event: CardCarouselEvent) = tryCatch(
@@ -17,19 +15,11 @@ internal class AddCardInteractor(private val bankCardRepository: BankCardReposit
             CardCarouselEvent.FailedToLoadCards(errorMessage = e.message)
         }
     ) {
-        val rawBankCard = (event as CardCarouselEvent.AddCard).bankCard
+        val bankCard = (event as CardCarouselEvent.DeleteCard).bankCard
 
-        val bankCard = BankCard(
-            id = UUID.randomUUID().toString(),
-            number = rawBankCard.number,
-            cardholderName = rawBankCard.cardholderName.trim(),
-            expirationDate = rawBankCard.expirationDate,
-            verificationNumber = rawBankCard.verificationNumber
-        )
-
-        bankCardRepository.addBankCard(bankCard = bankCard)
-        CardCarouselEvent.AddedCardSuccessfully
+        bankCardRepository.deleteBankCard(bankCard = bankCard)
+        CardCarouselEvent.DeletedCardSuccessfully
     }
 
-    override fun canHandle(event: CardCarouselEvent) = event is CardCarouselEvent.AddCard
+    override fun canHandle(event: CardCarouselEvent) = event is CardCarouselEvent.DeleteCard
 }
