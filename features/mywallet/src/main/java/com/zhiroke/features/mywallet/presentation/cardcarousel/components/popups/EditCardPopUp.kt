@@ -21,6 +21,7 @@ internal fun EditCardPopUp(popUpState: PopUpState, bankCard: BankCard, onHide: (
     var bankCardState by remember(bankCard.number) { mutableStateOf(bankCard) }
 
     val onDone = rememberLambda {
+        if (!bankCardState.isValid()) return@rememberLambda
         onHide.invoke()
         onSaveClick.invoke(bankCardState)
     }

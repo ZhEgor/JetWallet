@@ -20,6 +20,7 @@ internal fun AddCardPopUp(popUpState: PopUpState, onHide: () -> Unit, onAddClick
 
     var bankCardState by remember { mutableStateOf(BankCard.empty()) }
     val onDone = rememberLambda {
+        if (!bankCardState.isValid()) return@rememberLambda
         onHide.invoke()
         onAddClick.invoke(bankCardState)
         bankCardState = BankCard.empty()
