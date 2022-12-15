@@ -45,9 +45,9 @@ dependencies {
     implementation(project(":core:components"))
     implementation(project(":core:navigation"))
     implementation(project(":core:theme"))
+    implementation(project(":features:cardrecognition"))
 
     implementation(Libs.AndroidX.coreKtx)
-    implementation(Libs.AndroidX.activityCompose)
     implementation(Libs.Lifecycle.runtimeKtx)
     implementation(Libs.Lifecycle.runtimeCompose)
     implementation(Libs.Compose.ui)

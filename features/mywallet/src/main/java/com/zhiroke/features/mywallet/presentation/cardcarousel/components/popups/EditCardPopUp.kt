@@ -1,17 +1,15 @@
 package com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.zhiroke.core.common.utils.rememberLambda
-import com.zhiroke.core.components.buttons.ButtonText
 import com.zhiroke.core.components.popup.PopUp
 import com.zhiroke.core.components.popup.PopUpState
 import com.zhiroke.core.theme.demensions.dp_16
 import com.zhiroke.domain.models.BankCard
-import com.zhiroke.features.mywallet.R
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups.components.EditBankCardCallbacks
-import com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups.components.EditableCardContainer
+import com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups.components.EditableCardPage
 import com.zhiroke.features.mywallet.utils.isValid
 
 
@@ -20,47 +18,32 @@ internal fun EditCardPopUp(popUpState: PopUpState, bankCard: BankCard, onHide: (
 
     var bankCardState by remember(bankCard.number) { mutableStateOf(bankCard) }
 
-    val onDone = rememberLambda {
-        if (!bankCardState.isValid()) return@rememberLambda
-        onHide.invoke()
-        onSaveClick.invoke(bankCardState)
-    }
-
     PopUp(popUpState = popUpState, onHide = onHide) {
 
-        Column(
+        EditableCardPage(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(all = dp_16),
-            verticalArrangement = Arrangement.SpaceBetween
-        ) {
-
-            EditableCardContainer(
-                modifier = Modifier.weight(1f),
-                bankCard = bankCardState,
-                editBankCardCallbacks = EditBankCardCallbacks(
-                    onNumberChange = { value ->
-                        bankCardState = bankCardState.copy(number = value)
-                    },
-                    onExpirationDateChange = { value ->
-                        bankCardState = bankCardState.copy(expirationDate = value)
-                    },
-                    onCardholderChange = { value ->
-                        bankCardState = bankCardState.copy(cardholderName = value)
-                    },
-                    onVerificationNumberChange = { value ->
-                        bankCardState = bankCardState.copy(verificationNumber = value)
-                    },
-                ),
-                onDone = onDone
-            )
-
-            ButtonText(
-                modifier = Modifier.fillMaxWidth(),
-                textResId = R.string.edit_card_popup_button_save,
-                onClick = onDone,
-                enabled = bankCardState.isValid()
-            )
-        }
+                .padding(bottom = dp_16, start = dp_16, end = dp_16),
+            bankCard = bankCardState,
+            editBankCardCallbacks = EditBankCardCallbacks(
+                onNumberChange = { value ->
+                    bankCardState = bankCardState.copy(number = value)
+                },
+                onExpirationDateChange = { value ->
+                    bankCardState = bankCardState.copy(expirationDate = value)
+                },
+                onCardholderChange = { value ->
+                    bankCardState = bankCardState.copy(cardholderName = value)
+                },
+                onVerificationNumberChange = { value ->
+                    bankCardState = bankCardState.copy(verificationNumber = value)
+                },
+            ),
+            onDone = {
+                if (!bankCardState.isValid()) return@EditableCardPage
+                onHide.invoke()
+                onSaveClick.invoke(bankCardState)
+            }
+        )
     }
 }

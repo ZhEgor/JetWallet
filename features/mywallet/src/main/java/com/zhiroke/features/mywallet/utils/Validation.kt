@@ -4,11 +4,11 @@ import com.zhiroke.domain.models.BankCard
 
 
 internal fun String.isNumberValid(): Boolean {
-    return count() == 16 && all { it.isDigit() }
+    return length == 16 && all { it.isDigit() }
 }
 
 internal fun String.isExpirationDateValid(): Boolean {
-    return count() == 4 && all { it.isDigit() } && take(2).toInt() in (1..12)
+    return length == 4 && all { it.isDigit() } && take(2).toInt() in (1..12)
 }
 
 internal fun String.isCardholderNameValid(): Boolean {
@@ -16,7 +16,7 @@ internal fun String.isCardholderNameValid(): Boolean {
 }
 
 internal fun String.isVerificationNumberValid(): Boolean {
-    return count() in (3..4) && all { it.isDigit() }
+    return length in (3..4) && all { it.isDigit() }
 }
 
 internal fun BankCard.isValid(): Boolean {

@@ -60,11 +60,10 @@ internal fun ImmutableFrontSideCard(
 
     key(bankCard.number) {
 
-        EuropeanCardRatioContainer {
+        EuropeanCardRatioContainer(modifier = Modifier.clip(shape = RoundedCornerShape(dp_12))) {
 
             StatelessFrontSideCard(
                 modifier = Modifier
-                    .clip(shape = RoundedCornerShape(dp_12))
                     .fillMaxSize()
                     .background(color = MaterialColor.primaryContainer)
                     .padding(all = dp_16),

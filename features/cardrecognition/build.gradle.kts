@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.zhiroke.core.common"
+    namespace = "com.zhiroke.features.cardrecognition"
     compileSdk = Configs.compileSdk
 
     defaultConfig {
@@ -15,7 +15,7 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -40,10 +40,19 @@ android {
 
 dependencies {
 
+    implementation(project(":core:common"))
+
     implementation(Libs.AndroidX.coreKtx)
-    implementation(Libs.AndroidX.activityCompose)
-    implementation(Libs.Lifecycle.runtimeKtx)
+    implementation(Libs.Compose.ui)
+    implementation(Libs.Compose.toolingPreview)
+    implementation(Libs.Compose.material3)
+
     implementation(Libs.Coroutines.core)
 
-    implementation(Libs.Permissions.accompanist)
+    implementation(Libs.Gms.textRecognizerMlKit)
+
+    implementation(Libs.CameraX.camera2)
+    implementation(Libs.CameraX.view)
+    implementation(Libs.CameraX.lifecycle)
+    implementation(Libs.CameraX.mlKit)
 }

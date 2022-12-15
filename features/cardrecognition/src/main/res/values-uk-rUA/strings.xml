@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rational_permission_request_title">Запит на дозвіл</string>
+    <string name="rational_permission_request_confirm_button">Добре</string>
+    <string name="rational_permission_request_rational_text">Для роботи функції розпізнавання банківської картки потрібен дозвіл на камеру.</string>
+</resources>

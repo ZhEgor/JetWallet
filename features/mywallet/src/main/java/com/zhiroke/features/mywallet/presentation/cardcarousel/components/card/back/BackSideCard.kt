@@ -52,11 +52,10 @@ internal fun ImmutableBackSideCard(bankCard: BankCard) {
 
     key(bankCard.number) {
 
-        EuropeanCardRatioContainer {
+        EuropeanCardRatioContainer(modifier = Modifier.clip(shape = RoundedCornerShape(dp_12))) {
 
             StatelessBackSideCard(
                 modifier = Modifier
-                    .clip(shape = RoundedCornerShape(dp_12))
                     .fillMaxSize()
                     .background(color = MaterialColor.primaryContainer)
                     .graphicsLayer(rotationY = 180f),

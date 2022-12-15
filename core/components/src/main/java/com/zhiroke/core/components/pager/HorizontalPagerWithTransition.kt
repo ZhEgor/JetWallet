@@ -25,7 +25,7 @@ fun HorizontalPagerWithTransition(
         HorizontalPager(
             modifier = modifier,
             count = count,
-            state = pagerState
+            state = pagerState,
         ) { page ->
 
             PagerItemWithTransition(page = page) {

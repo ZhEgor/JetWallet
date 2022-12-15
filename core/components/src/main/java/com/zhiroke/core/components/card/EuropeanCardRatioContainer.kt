@@ -7,11 +7,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
+
 @Composable
-fun EuropeanCardRatioContainer(content: @Composable BoxScope.() -> Unit) {
+fun EuropeanCardRatioContainer(modifier: Modifier = Modifier, content: @Composable BoxScope.() -> Unit) {
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .aspectRatio(ratio = 1.647f),
         content = content

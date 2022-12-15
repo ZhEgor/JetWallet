@@ -13,10 +13,14 @@ object Libs {
         const val material3 = "androidx.compose.material3:material3:${Versions.material3}"
         const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
         const val tooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
-        const val accompanistPager = "com.google.accompanist:accompanist-pager:${Versions.accompanistPager}"
-        const val accompanistPagerIndicator = "com.google.accompanist:accompanist-pager-indicators:${Versions.accompanistPager}"
+        const val accompanistPager = "com.google.accompanist:accompanist-pager:${Versions.accompanist}"
+        const val accompanistPagerIndicator = "com.google.accompanist:accompanist-pager-indicators:${Versions.accompanist}"
         const val testJunit4 = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
         const val testManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
+    }
+
+    object Permissions {
+        const val accompanist = "com.google.accompanist:accompanist-permissions:${Versions.accompanist}"
     }
 
     object Coroutines {
@@ -24,7 +28,15 @@ object Libs {
         const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     }
 
-    object Kotlin {
+    object Gms {
+        const val textRecognizerMlKit = "com.google.android.gms:play-services-mlkit-text-recognition:${Versions.textRecognizerMlKit}"
+    }
+
+    object CameraX {
+        const val mlKit = "androidx.camera:camera-mlkit-vision:${Versions.cameraXMlKit}"
+        const val camera2 = "androidx.camera:camera-camera2:${Versions.cameraX}"
+        const val lifecycle = "androidx.camera:camera-lifecycle:${Versions.cameraX}"
+        const val view = "androidx.camera:camera-view:${Versions.cameraX}"
     }
 
     object Koin {
