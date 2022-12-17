@@ -13,7 +13,7 @@ class KoinInitManager(private val application: Application) : InitManager {
         startKoin {
             androidContext(application)
             modules(
-                dataModule(password = "changeMe"), // ToDo: retrieve the password from the KeyStore
+                dataModule(),
                 repositoriesModule(),
                 myWalletModules()
             )
