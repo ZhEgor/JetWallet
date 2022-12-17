@@ -84,12 +84,18 @@ internal fun AddCardPopUp(popUpState: PopUpState, onHide: () -> Unit, onAddClick
                                 pagerState.animateScrollToPage(page = CardEditMode.Manual.ordinal)
                             }
                         },
-                        onCardRecognized = { cardNumber, expirationDate ->
+                        onFrontSideCardRecognized = { cardNumber, expirationDate ->
                             bankCardState = bankCardState.copy(number = cardNumber, expirationDate = expirationDate)
                             scope.launch {
                                 pagerState.animateScrollToPage(page = CardEditMode.Manual.ordinal)
                             }
                         },
+                        onBackSideCardRecognized = { verificationNumber ->
+                            bankCardState = bankCardState.copy(verificationNumber = verificationNumber)
+                            scope.launch {
+                                pagerState.animateScrollToPage(page = CardEditMode.Manual.ordinal)
+                            }
+                        }
                     )
                 }
             }

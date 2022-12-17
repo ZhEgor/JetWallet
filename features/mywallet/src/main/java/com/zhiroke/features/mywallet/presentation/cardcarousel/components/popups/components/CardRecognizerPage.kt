@@ -19,7 +19,8 @@ fun CardRecognizerPage(
     modifier: Modifier = Modifier,
     forceToLeaveComposition: Boolean,
     onReturnToPreviousPage: () -> Unit,
-    onCardRecognized: (cardNumber: String, expirationDate: String) -> Unit
+    onFrontSideCardRecognized: (cardNumber: String, expirationDate: String) -> Unit,
+    onBackSideCardRecognized: (verificationNumber: String) -> Unit
 ) {
     Box(
         modifier = modifier,
@@ -38,7 +39,8 @@ fun CardRecognizerPage(
                 CardRecognizer(
                     modifier = Modifier.fillMaxSize(),
                     onDismissRequest = onReturnToPreviousPage,
-                    onCardRecognized = onCardRecognized
+                    onFrontSideCardRecognized = onFrontSideCardRecognized,
+                    onBackSideCardRecognized = onBackSideCardRecognized
                 )
             }
         }

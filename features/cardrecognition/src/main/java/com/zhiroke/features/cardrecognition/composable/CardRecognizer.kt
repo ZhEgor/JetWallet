@@ -8,7 +8,8 @@ import com.zhiroke.core.common.permissions.RequestPermissionHelper
 fun CardRecognizer(
     modifier: Modifier = Modifier,
     onDismissRequest: () -> Unit,
-    onCardRecognized: (cardNumber: String, expirationDate: String) -> Unit,
+    onFrontSideCardRecognized: (cardNumber: String, expirationDate: String) -> Unit,
+    onBackSideCardRecognized: (verificationNumber: String) -> Unit
 ) {
 
     RequestPermissionHelper(
@@ -17,7 +18,11 @@ fun CardRecognizer(
             Rationale(onDismissRequest = onDismissRequest, onRequestPermission = onRequestPermission)
         },
         permissionGrantedContent = {
-            UnsafeCardRecognizer(modifier = modifier, onCardRecognized = onCardRecognized)
+            UnsafeCardRecognizer(
+                modifier = modifier,
+                onFrontSideCardRecognized = onFrontSideCardRecognized,
+                onBackSideCardRecognized = onBackSideCardRecognized
+            )
         }
     )
 }

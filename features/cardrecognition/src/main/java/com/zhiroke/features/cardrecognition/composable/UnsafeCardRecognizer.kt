@@ -28,35 +28,39 @@ import kotlinx.coroutines.asExecutor
 @Composable
 internal fun UnsafeCardRecognizer(
     modifier: Modifier = Modifier,
-    onCardRecognized: (cardNumber: String, expirationDate: String) -> Unit
+    onFrontSideCardRecognized: (cardNumber: String, expirationDate: String) -> Unit,
+    onBackSideCardRecognized: (verificationNumber: String) -> Unit
 ) {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
 
     val cameraController = remember { LifecycleCameraController(context) }
     val cameraView = remember { PreviewView(context) }
-
     val cameraExecutor = remember { Dispatchers.Default.limitedParallelism(2).asExecutor() }
-
     val textScanner = remember { TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS) }
 
 
     LaunchedEffect(Unit) {
         var recognizedCardNumber: String? = null
         var recognizedExpirationDate: String? = null
-        Log.d("JET_TAG", "onCreate")
 
         val cardNumberRecognizer = DigitRecognizer(pattern = "xxxx xxxx xxxx xxxx") { cardNumber ->
             recognizedCardNumber = cardNumber
             recognizedExpirationDate?.let { expirationDate ->
-                onCardRecognized.invoke(cardNumber, expirationDate)
+                onFrontSideCardRecognized.invoke(cardNumber, expirationDate)
             }
             Log.d("JET_TAG", "\n\n\n\n\nbest match: $cardNumber")
         }
         val expirationDateRecognizer = DigitRecognizer(pattern = "xx/xx") { expirationDate ->
             recognizedExpirationDate = expirationDate
             recognizedCardNumber?.let { cardNumber ->
-                onCardRecognized.invoke(cardNumber, expirationDate)
+                onFrontSideCardRecognized.invoke(cardNumber, expirationDate)
+            }
+            Log.d("JET_TAG", "\n\n\n\n\nbest match: $recognizedExpirationDate")
+        }
+        val verificationNumberRecognizer = DigitRecognizer(pattern = "xxx") { verificationNumber ->
+            if (recognizedCardNumber == null && recognizedExpirationDate == null) {
+                onBackSideCardRecognized.invoke(verificationNumber)
             }
             Log.d("JET_TAG", "\n\n\n\n\nbest match: $recognizedExpirationDate")
         }
@@ -74,6 +78,7 @@ internal fun UnsafeCardRecognizer(
                 text?.textBlocks?.forEach { textBlock ->
                     cardNumberRecognizer.feed(textBlock.text)
                     expirationDateRecognizer.feed(textBlock.text)
+                    verificationNumberRecognizer.feed(textBlock.text)
                 }
             }
         )
@@ -83,7 +88,6 @@ internal fun UnsafeCardRecognizer(
 
     DisposableEffect(Unit) {
         onDispose {
-            Log.d("JET_TAG", "onDispose")
             cameraView.controller = null
             cameraController.unbind()
         }
