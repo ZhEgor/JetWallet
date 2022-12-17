@@ -11,8 +11,8 @@ internal class CardCarouselReducer : BaseReducer<CardCarouselState> {
     override fun reduce(state: CardCarouselState, event: BaseEvent): CardCarouselState {
         return state.run {
             when(event) {
-                CardCarouselEvent.LoadCards -> copy(areCardsLoading = true)
-                is CardCarouselEvent.LoadedCards -> copy(cards = event.cards, areCardsLoading = false)
+                CardCarouselEvent.LoadCards -> copy(cardsState = CardsState.Loading)
+                is CardCarouselEvent.LoadedCards -> copy(cardsState = if (event.cards.isNotEmpty()) CardsState.Loaded(event.cards) else CardsState.Empty)
                 is CardCarouselEvent.FailedToLoadCards -> copy(errorMessage = event.errorMessage)
                 is CardCarouselEvent.ChangeStateOfAddPopUp -> copy(addCardPopUp = addCardPopUp.copy(isShown = event.show))
                 is CardCarouselEvent.ChangeStateOfEditPopUp -> copy(editCardPopUp = editCardPopUp.copy(isShown = event.show), cardToEdit = event.cardToEdit)

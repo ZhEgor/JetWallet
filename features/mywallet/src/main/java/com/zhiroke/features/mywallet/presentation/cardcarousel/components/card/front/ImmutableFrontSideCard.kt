@@ -1,14 +1,12 @@
 package com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.key
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,34 +17,10 @@ import com.zhiroke.core.theme.demensions.dp_4
 import com.zhiroke.core.theme.demensions.dp_8
 import com.zhiroke.core.theme.utils.MaterialColor
 import com.zhiroke.domain.models.BankCard
-
-
-@Composable
-private fun StatelessFrontSideCard(
-    modifier: Modifier = Modifier,
-    cardNumberContent: @Composable () -> Unit,
-    expirationDateContainer: @Composable () -> Unit,
-    cardholderContainer: @Composable () -> Unit,
-) {
-
-    Box(modifier = modifier) {
-
-        CardNumberContainer(
-            modifier = Modifier.align(alignment = Alignment.Center),
-            content = cardNumberContent
-        )
-
-        ExpirationDateContainer(
-            modifier = Modifier.align(alignment = Alignment.BottomStart),
-            content = expirationDateContainer
-        )
-
-        CardholderContainer(
-            modifier = Modifier.align(alignment = Alignment.BottomEnd),
-            content = cardholderContainer
-        )
-    }
-}
+import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.CardNumberText
+import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.CardholderText
+import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.ExpirationDateText
+import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.ToolsContainer
 
 
 /**

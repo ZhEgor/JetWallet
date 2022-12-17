@@ -1,4 +1,4 @@
-package com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back
+package com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Spacer

@@ -1,7 +1,8 @@
 package com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.key
@@ -15,33 +16,7 @@ import com.zhiroke.core.theme.demensions.dp_4
 import com.zhiroke.core.theme.demensions.dp_8
 import com.zhiroke.core.theme.utils.MaterialColor
 import com.zhiroke.domain.models.BankCard
-
-
-@Composable
-private fun StatelessBackSideCard(
-    modifier: Modifier = Modifier,
-    verificationNumberContent: @Composable () -> Unit
-) {
-
-    Box(modifier = modifier) {
-
-        Column(
-            modifier = Modifier.fillMaxHeight(fraction = 0.6f),
-            verticalArrangement = Arrangement.SpaceAround
-        ) {
-
-            MagneticStripe()
-
-            SignatureAndVerificationNumberRow(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight()
-                    .padding(horizontal = dp_8),
-                verificationNumberContent = verificationNumberContent
-            )
-        }
-    }
-}
+import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.components.VerificationNumberText
 
 
 /**
@@ -50,7 +25,7 @@ private fun StatelessBackSideCard(
 @Composable
 internal fun ImmutableBackSideCard(bankCard: BankCard) {
 
-    key(bankCard.number) {
+    key(bankCard.number) { // ToDo: check for necessaries
 
         EuropeanCardRatioContainer(modifier = Modifier.clip(shape = RoundedCornerShape(dp_12))) {
 
@@ -71,10 +46,9 @@ internal fun ImmutableBackSideCard(bankCard: BankCard) {
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
-private fun BackSideCardPreview() {
+private fun ImmutableBackSideCardPreview() {
     ImmutableBackSideCard(
         bankCard = BankCard(
             id = "1",

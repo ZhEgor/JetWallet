@@ -4,14 +4,12 @@ import com.zhiroke.core.common.base.BaseState
 import com.zhiroke.core.common.base.error.ErrorState
 import com.zhiroke.core.components.popup.PopUpState
 import com.zhiroke.core.components.utils.StableList
-import com.zhiroke.core.components.utils.emptyStableList
 import com.zhiroke.domain.models.BankCard
 
 
 internal data class CardCarouselState(
     override val errorMessage: String?,
-    val areCardsLoading: Boolean,
-    val cards: StableList<BankCard>,
+    val cardsState: CardsState,
     val addCardPopUp: PopUpState,
     val editCardPopUp: PopUpState,
     val cardToEdit: BankCard?
@@ -20,12 +18,17 @@ internal data class CardCarouselState(
     companion object {
 
         fun initialState() = CardCarouselState(
-            areCardsLoading = false,
             errorMessage = null,
-            cards = emptyStableList(),
+            cardsState = CardsState.Loading,
             addCardPopUp = PopUpState.initialState(),
             editCardPopUp = PopUpState.initialState(),
             cardToEdit = null
         )
     }
+}
+
+internal sealed interface CardsState {
+    object Loading : CardsState
+    class Loaded(val cards: StableList<BankCard>) : CardsState
+    object Empty : CardsState
 }

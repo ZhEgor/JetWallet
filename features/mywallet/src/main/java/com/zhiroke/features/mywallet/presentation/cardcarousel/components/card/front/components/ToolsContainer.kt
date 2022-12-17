@@ -1,4 +1,4 @@
-package com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front
+package com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
