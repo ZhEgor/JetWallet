@@ -6,5 +6,6 @@
     <string name="expiration_date_label">Expiration date</string>
     <string name="cardholder_name_label">Cardholder name</string>
     <string name="verification_number_label">Verification number</string>
+    <string name="empty_card_text">It looks like, you haven\'t added any cards yet.</string>
 
 </resources>

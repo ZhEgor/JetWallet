@@ -1,9 +1,6 @@
 package com.zhiroke.features.mywallet.presentation.cardcarousel
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -14,9 +11,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.zhiroke.core.common.utils.copyToClipboardWithVibration
 import com.zhiroke.core.components.pager.HorizontalPagerWithTransition
+import com.zhiroke.core.theme.demensions.dp_16
+import com.zhiroke.core.theme.demensions.dp_32
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.button.AddCardButton
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.BankCard
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.ShimmeringBankCard
+import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.EmptyBankCard
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups.AddCardPopUp
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups.EditCardPopUp
 import org.koin.androidx.compose.getViewModel
@@ -104,7 +104,13 @@ private fun CardsAreLoading() {
 @Composable
 private fun CardsAreEmpty() {
 
+    EmptyBankCard(
+        modifier = Modifier
+            .wrapContentSize()
+            .padding(horizontal = dp_16, vertical = dp_32),
+    )
 }
+
 
 @Preview
 @Composable

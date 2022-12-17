@@ -3,14 +3,13 @@ package com.zhiroke.features.mywallet.presentation.cardcarousel.components.popup
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import com.zhiroke.core.components.card.EuropeanCardRatioContainer
-import com.zhiroke.core.theme.demensions.dp_12
+import com.zhiroke.core.theme.utils.MaterialShapes
 import com.zhiroke.features.cardrecognition.composable.CardRecognizer
 
 
@@ -28,7 +27,7 @@ fun CardRecognizerPage(
     ) {
         EuropeanCardRatioContainer(
             modifier = Modifier
-                .clip(shape = RoundedCornerShape(dp_12))
+                .clip(shape = MaterialShapes.medium)
                 .background(color = Color.Black)
         ) {
 

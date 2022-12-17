@@ -6,5 +6,6 @@
     <string name="expiration_date_label">Термін придатності</string>
     <string name="cardholder_name_label">Ім\'я власника картки</string>
     <string name="verification_number_label">Номер підтвердження</string>
+    <string name="empty_card_text">Здається, ви ще не додали карти.</string>
 
 </resources>
