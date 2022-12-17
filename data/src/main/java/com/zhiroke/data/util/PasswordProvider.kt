@@ -14,7 +14,9 @@ class PasswordProvider(private val context: Context, private val cryptoManager: 
         return if (file.exists()) {
             cryptoManager.decrypt(inputStream = FileInputStream(file))
         } else {
-            cryptoManager.encrypt(bytes = generatePassword(), outputStream = FileOutputStream(file))
+            val password = generatePassword()
+            cryptoManager.encrypt(bytes = password, outputStream = FileOutputStream(file))
+            password
         }
     }
 
