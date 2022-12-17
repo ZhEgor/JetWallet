@@ -33,7 +33,6 @@ fun PopUp(
         skipHalfExpanded = true,
         confirmStateChange = { newState ->
             if (newState == ModalBottomSheetValue.Hidden) {
-                keyboardController?.hide()
                 onHide.invoke()
             }
             true
@@ -43,7 +42,14 @@ fun PopUp(
     BackHandler(onBack = onHide)
 
     LaunchedEffect(key1 = popUpState) {
-        if (popUpState.isShown) state.show() else if (state.isVisible) state.hide()
+        if (popUpState.isShown) {
+            state.show()
+        } else if (state.isVisible) {
+            keyboardController?.hide()
+            state.hide()
+        } else {
+            keyboardController?.hide()
+        }
     }
 
     ModalBottomSheetLayout(
