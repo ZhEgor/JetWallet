@@ -8,7 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.key
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
+import coil.compose.AsyncImage
 import com.zhiroke.core.components.card.EuropeanCardRatioContainer
 import com.zhiroke.core.theme.demensions.dp_16
 import com.zhiroke.core.theme.demensions.dp_4
@@ -47,18 +49,27 @@ internal fun ImmutableFrontSideCard(
                         number = bankCard.number
                     )
                 },
-                expirationDateContainer = {
+                expirationDateContent = {
 
                     ExpirationDateText(
                         modifier = Modifier.padding(vertical = dp_4, horizontal = dp_8),
                         expirationDate = bankCard.expirationDate
                     )
                 },
-                cardholderContainer = {
+                cardholderContent = {
 
                     CardholderText(
                         modifier = Modifier.padding(vertical = dp_4, horizontal = dp_8),
                         cardholder = bankCard.cardholderName
+                    )
+                },
+                skinContent = {
+
+                    AsyncImage(
+                        modifier = Modifier.fillMaxSize().clip(MaterialShapes.medium),
+                        model = bankCard.skinUri,
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
                     )
                 }
             )
@@ -72,13 +83,8 @@ internal fun ImmutableFrontSideCard(
 @Preview(showBackground = true)
 @Composable
 private fun FrontSideCardPreview() {
+
     ImmutableFrontSideCard(
-        bankCard = BankCard(
-            id = "1",
-            number = "1111222233334444",
-            cardholderName = "Yehor Zhyr",
-            expirationDate = "12/12",
-            verificationNumber = "546"
-        )
+        bankCard = BankCard.dummy()
     )
 }

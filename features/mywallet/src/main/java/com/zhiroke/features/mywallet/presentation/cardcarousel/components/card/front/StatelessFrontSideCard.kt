@@ -7,17 +7,23 @@ import androidx.compose.ui.Modifier
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.CardNumberContainer
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.CardholderContainer
 import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.ExpirationDateContainer
+import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.SkinContainer
 
 
 @Composable
 internal fun StatelessFrontSideCard(
     modifier: Modifier = Modifier,
     cardNumberContent: @Composable () -> Unit,
-    expirationDateContainer: @Composable () -> Unit,
-    cardholderContainer: @Composable () -> Unit,
+    expirationDateContent: @Composable () -> Unit,
+    cardholderContent: @Composable () -> Unit,
+    skinContent: (@Composable () -> Unit)? = null
 ) {
 
     Box(modifier = modifier) {
+
+        skinContent?.let { content ->
+            SkinContainer(content = content)
+        }
 
         CardNumberContainer(
             modifier = Modifier.align(alignment = Alignment.Center),
@@ -26,12 +32,12 @@ internal fun StatelessFrontSideCard(
 
         ExpirationDateContainer(
             modifier = Modifier.align(alignment = Alignment.BottomStart),
-            content = expirationDateContainer
+            content = expirationDateContent
         )
 
         CardholderContainer(
             modifier = Modifier.align(alignment = Alignment.BottomEnd),
-            content = cardholderContainer
+            content = cardholderContent
         )
     }
 }

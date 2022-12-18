@@ -38,6 +38,7 @@ internal fun BankCard(
             }
         }
     ) { isFrontSide ->
+
         if (isFrontSide) {
             ImmutableFrontSideCard(
                 bankCard = card,

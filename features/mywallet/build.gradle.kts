@@ -50,10 +50,16 @@ dependencies {
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.Lifecycle.runtimeKtx)
     implementation(Libs.Lifecycle.runtimeCompose)
+
     implementation(Libs.Compose.ui)
     implementation(Libs.Compose.toolingPreview)
     implementation(Libs.Compose.material3)
     implementation(Libs.Compose.accompanistPager)
+    implementation(Libs.Compose.materialIconsExtended)
+    implementation(Libs.Compose.materialIconsExtended)
+
+    implementation(Libs.Coil.compose)
+
     implementation(Libs.Koin.core)
     implementation(Libs.Koin.android)
     implementation(Libs.Koin.compose)

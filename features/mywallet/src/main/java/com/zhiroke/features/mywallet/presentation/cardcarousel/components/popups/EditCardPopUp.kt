@@ -38,6 +38,9 @@ internal fun EditCardPopUp(popUpState: PopUpState, bankCard: BankCard, onHide: (
                 onVerificationNumberChange = { value ->
                     bankCardState = bankCardState.copy(verificationNumber = value)
                 },
+                onPhotoUriChange = { value ->
+                    bankCardState = bankCardState.copy(skinUri = value)
+                }
             ),
             onDone = {
                 if (!bankCardState.isValid()) return@EditableCardPage

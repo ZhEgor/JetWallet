@@ -48,13 +48,8 @@ internal fun ImmutableBackSideCard(bankCard: BankCard) {
 @Preview(showBackground = true)
 @Composable
 private fun ImmutableBackSideCardPreview() {
+
     ImmutableBackSideCard(
-        bankCard = BankCard(
-            id = "1",
-            number = "1111222233334444",
-            cardholderName = "Yehor Zhyr",
-            expirationDate = "12/12",
-            verificationNumber = "546"
-        )
+        bankCard = BankCard.dummy()
     )
 }

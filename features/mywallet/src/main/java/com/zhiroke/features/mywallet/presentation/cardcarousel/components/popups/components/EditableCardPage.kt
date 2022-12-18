@@ -1,5 +1,6 @@
 package com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups.components
 
+import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -29,6 +30,7 @@ internal class EditBankCardCallbacks(
     val onExpirationDateChange: (String) -> Unit,
     val onCardholderChange: (String) -> Unit,
     val onVerificationNumberChange: (String) -> Unit,
+    val onPhotoUriChange: (Uri?) -> Unit,
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -50,7 +52,7 @@ internal fun EditableCardPage(
 
         Column {
 
-            EditableBankCard(bankCard = bankCard, isFrontSide = isFrontSide)
+            EditableBankCard(bankCard = bankCard, isFrontSide = isFrontSide, onPhotoUriChange = editBankCardCallbacks.onPhotoUriChange)
 
             Spacer(modifier = Modifier.height(dp_16))
 

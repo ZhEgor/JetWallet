@@ -34,11 +34,11 @@ internal fun ShimmeringFrontSideCard() {
 
                     ShimmeringTextSize(text = "1234567812345678")
                 },
-                expirationDateContainer = {
+                expirationDateContent = {
 
                     ShimmeringTextSize(text = "11/99")
                 },
-                cardholderContainer = {
+                cardholderContent = {
 
                     ShimmeringTextSize(text = "Egor Zhir")
                 }

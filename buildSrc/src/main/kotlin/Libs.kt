@@ -45,6 +45,10 @@ object Libs {
         const val compose = "io.insert-koin:koin-androidx-compose:${Versions.koin}"
     }
 
+    object Coil {
+        const val compose = "io.coil-kt:coil-compose:${Versions.coil}"
+    }
+
     object Room {
         const val runtime = "androidx.room:room-runtime:${Versions.room}"
         const val ktx = "androidx.room:room-ktx:${Versions.room}"

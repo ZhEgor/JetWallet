@@ -12,6 +12,7 @@ data class BankCardLocal(
     @ColumnInfo(name = COLUMN_CARDHOLDER_NAME) val cardholderName: String,
     @ColumnInfo(name = COLUMN_EXPIRATION_DATE) val expirationDate: String,
     @ColumnInfo(name = COLUMN_VERIFICATION_NUMBER) val verificationNumber: String,
+    @ColumnInfo(name = COLUMN_SKIN_URI) val skinUri: String?,
 ) {
 
     internal companion object {
@@ -23,5 +24,6 @@ data class BankCardLocal(
         const val COLUMN_CARDHOLDER_NAME = "cardholder_name"
         const val COLUMN_EXPIRATION_DATE = "expiration_date"
         const val COLUMN_VERIFICATION_NUMBER = "verification_number"
+        const val COLUMN_SKIN_URI = "skin_uri"
     }
 }

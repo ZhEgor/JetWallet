@@ -24,7 +24,8 @@ internal class AddCardInteractor(private val bankCardRepository: BankCardReposit
             number = rawBankCard.number,
             cardholderName = rawBankCard.cardholderName.trim(),
             expirationDate = rawBankCard.expirationDate,
-            verificationNumber = rawBankCard.verificationNumber
+            verificationNumber = rawBankCard.verificationNumber,
+            skinUri = rawBankCard.skinUri
         )
 
         bankCardRepository.addBankCard(bankCard = bankCard)
