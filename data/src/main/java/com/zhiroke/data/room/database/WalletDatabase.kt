@@ -11,7 +11,7 @@ private const val WALLET_DATABASE_VERSION = 1
 @Database(
     entities = [BankCardLocal::class],
     version = WALLET_DATABASE_VERSION,
-    exportSchema = true
+    exportSchema = true,
 )
 internal abstract class WalletDatabase : RoomDatabase() {
 
