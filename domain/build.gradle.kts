@@ -38,6 +38,7 @@ dependencies {
 
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.Lifecycle.runtimeKtx)
+    implementation(Libs.Compose.runtime) // need to make ui models stable
 
     implementation(Libs.Koin.core)
     implementation(Libs.Koin.android)

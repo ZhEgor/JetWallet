@@ -8,6 +8,7 @@ object Libs {
 
     object Compose {
         const val ui = "androidx.compose.ui:ui:${Versions.compose}"
+        const val runtime = "androidx.compose.runtime:runtime:${Versions.compose}"
         const val uiUtils = "androidx.compose.ui:ui-util:${Versions.compose}"
         const val materialIconsExtended = "androidx.compose.material:material-icons-extended:${Versions.compose}"
         const val material3 = "androidx.compose.material3:material3:${Versions.material3}"

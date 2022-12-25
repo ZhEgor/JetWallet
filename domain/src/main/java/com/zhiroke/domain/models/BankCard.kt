@@ -1,9 +1,11 @@
 package com.zhiroke.domain.models
 
 import android.net.Uri
+import androidx.compose.runtime.Stable
 import androidx.core.net.toUri
 import com.zhiroke.data.models.BankCardLocal
 
+@Stable
 data class BankCard(
     internal val id: String,
     val number: String,
