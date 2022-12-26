@@ -1,4 +1,4 @@
-package com.zhiroke.domain
+package com.zhiroke.core.theme
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.zhiroke.domain.test", appContext.packageName)
+        assertEquals("com.zhiroke.core.theme.test", appContext.packageName)
     }
 }

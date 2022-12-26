@@ -1,6 +1,6 @@
 plugins {
     id("com.android.library")
-    kotlin("android")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -15,7 +15,7 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -23,53 +23,21 @@ android {
             )
         }
     }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.composeCompiler
-    }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "11"
-        freeCompilerArgs = freeCompilerArgs + "-P"
-        freeCompilerArgs = freeCompilerArgs + ("plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=" + project.buildDir.absolutePath + "/compose_metrics")
-        freeCompilerArgs = freeCompilerArgs + "-P"
-        freeCompilerArgs = freeCompilerArgs + ("plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=" + project.buildDir.absolutePath + "/compose_metrics")
+        jvmTarget = "1.8"
     }
 }
 
 dependencies {
 
-    implementation(project(":domain"))
-    implementation(project(":core:common"))
-    implementation(project(":core:components"))
-    implementation(project(":core:navigation"))
-    implementation(project(":core:theme"))
-    implementation(project(":features:cardrecognition"))
-
-    implementation(Libs.AndroidX.coreKtx)
-    implementation(Libs.Lifecycle.runtimeKtx)
-    implementation(Libs.Lifecycle.runtimeCompose)
-
-    implementation(Libs.Compose.ui)
-    implementation(Libs.Compose.toolingPreview)
-    implementation(Libs.Compose.material3)
-    implementation(Libs.Compose.accompanistPager)
-    implementation(Libs.Compose.materialIconsExtended)
-    implementation(Libs.Compose.materialIconsExtended)
-
-    implementation(Libs.Coil.compose)
-
-    implementation(Libs.Koin.core)
-    implementation(Libs.Koin.android)
-    implementation(Libs.Koin.compose)
-
-    testImplementation(Libs.Test.jUnit)
-    androidTestImplementation(Libs.Test.androidJUnit)
-    androidTestImplementation(Libs.Test.espresso)
-    androidTestImplementation(Libs.Compose.testJunit4)
+    implementation("androidx.core:core-ktx:1.8.0")
+    implementation("androidx.appcompat:appcompat:1.5.1")
+    implementation("com.google.android.material:material:1.7.0")
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 }
