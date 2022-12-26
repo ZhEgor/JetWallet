@@ -19,10 +19,10 @@ internal class DigitRecognizer(
         val unrecognizedSymbol = DIGIT_SYMBOL
         val bestMatch = CharArray(pattern.length) { unrecognizedSymbol }
 
-        for (i in pattern.indices) { // 8
+        for (i in pattern.indices) {
             if (pattern[i] == DIGIT_SYMBOL) {
                 val bestMatchesForSymbol: HashMap<Char, Int> = hashMapOf()
-                for (j in selection.indices) { // 100
+                for (j in selection.indices) {
                     val matchingSymbol = selection[j][i]
                     if (matchingSymbol.isDigit()) {
                         bestMatchesForSymbol[matchingSymbol] = bestMatchesForSymbol[matchingSymbol]?.let { it + 1 } ?: 1 // creating selection of repeating ones

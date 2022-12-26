@@ -77,7 +77,7 @@ internal fun UnsafeCardRecognizer(
                 val text = result.getValue(textScanner)
                 text?.textBlocks?.forEach { textBlock ->
                     cardNumberRecognizer.feed(textBlock.text)
-                    expirationDateRecognizer.feed(textBlock.text)
+                    expirationDateRecognizer.feed(textBlock.text.filterNot { it.isLetter() })
                     verificationNumberRecognizer.feed(textBlock.text)
                 }
             }
