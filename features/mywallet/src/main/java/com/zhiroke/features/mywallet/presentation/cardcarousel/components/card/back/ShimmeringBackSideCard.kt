@@ -3,7 +3,6 @@ package com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.key
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
@@ -21,24 +20,21 @@ import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.b
 @Composable
 internal fun ShimmeringBackSideCard() {
 
-    key(Unit) { // ToDo: check for necessaries
+    EuropeanCardRatioContainer(modifier = Modifier.clip(shape = MaterialShapes.medium)) {
 
-        EuropeanCardRatioContainer(modifier = Modifier.clip(shape = MaterialShapes.medium)) {
+        StatelessBackSideCard(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = MaterialColor.primaryContainer)
+                .graphicsLayer(rotationY = 180f),
+            verificationNumberContent = {
 
-            StatelessBackSideCard(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(color = MaterialColor.primaryContainer)
-                    .graphicsLayer(rotationY = 180f),
-                verificationNumberContent = {
+                VerificationNumberContainer {
 
-                    VerificationNumberContainer {
-
-                        ShimmeringTextSize(text = "123")
-                    }
+                    ShimmeringTextSize(text = "123")
                 }
-            )
-        }
+            }
+        )
     }
 }
 

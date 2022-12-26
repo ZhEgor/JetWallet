@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.key
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
@@ -24,24 +23,21 @@ import com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.b
 @Composable
 internal fun ImmutableBackSideCard(bankCard: BankCard) {
 
-    key(bankCard.number) { // ToDo: check for necessaries
+    EuropeanCardRatioContainer(modifier = Modifier.clip(shape = MaterialShapes.medium)) {
 
-        EuropeanCardRatioContainer(modifier = Modifier.clip(shape = MaterialShapes.medium)) {
+        StatelessBackSideCard(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = MaterialColor.primaryContainer)
+                .graphicsLayer(rotationY = 180f),
+            verificationNumberContent = {
 
-            StatelessBackSideCard(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(color = MaterialColor.primaryContainer)
-                    .graphicsLayer(rotationY = 180f),
-                verificationNumberContent = {
-
-                    VerificationNumberText(
-                        modifier = Modifier.padding(vertical = dp_4, horizontal = dp_8),
-                        number = bankCard.verificationNumber
-                    )
-                }
-            )
-        }
+                VerificationNumberText(
+                    modifier = Modifier.padding(vertical = dp_4, horizontal = dp_8),
+                    number = bankCard.verificationNumber
+                )
+            }
+        )
     }
 }
 

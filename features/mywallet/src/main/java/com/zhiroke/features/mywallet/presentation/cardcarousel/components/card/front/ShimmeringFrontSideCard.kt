@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.key
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,29 +20,26 @@ import com.zhiroke.core.theme.utils.MaterialShapes
 @Composable
 internal fun ShimmeringFrontSideCard() {
 
-    key(Unit) {
+    EuropeanCardRatioContainer(modifier = Modifier.clip(shape = MaterialShapes.medium)) {
 
-        EuropeanCardRatioContainer(modifier = Modifier.clip(shape = MaterialShapes.medium)) {
+        StatelessFrontSideCard(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = MaterialColor.primaryContainer)
+                .padding(all = dp_16),
+            cardNumberContent = {
 
-            StatelessFrontSideCard(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(color = MaterialColor.primaryContainer)
-                    .padding(all = dp_16),
-                cardNumberContent = {
+                ShimmeringTextSize(text = "1234567812345678")
+            },
+            expirationDateContent = {
 
-                    ShimmeringTextSize(text = "1234567812345678")
-                },
-                expirationDateContent = {
+                ShimmeringTextSize(text = "11/99")
+            },
+            cardholderContent = {
 
-                    ShimmeringTextSize(text = "11/99")
-                },
-                cardholderContent = {
-
-                    ShimmeringTextSize(text = "Egor Zhir")
-                }
-            )
-        }
+                ShimmeringTextSize(text = "Egor Zhir")
+            }
+        )
     }
 }
 
