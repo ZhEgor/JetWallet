@@ -46,4 +46,6 @@ dependencies {
     implementation(Libs.Coroutines.core)
 
     implementation(Libs.Permissions.accompanist)
+
+    implementation(Libs.Koin.core)
 }

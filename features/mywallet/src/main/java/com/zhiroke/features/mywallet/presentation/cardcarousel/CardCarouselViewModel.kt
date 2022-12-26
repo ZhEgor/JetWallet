@@ -2,6 +2,8 @@ package com.zhiroke.features.mywallet.presentation.cardcarousel
 
 import androidx.annotation.RestrictTo
 import com.zhiroke.core.common.base.BaseViewModel
+import com.zhiroke.core.common.coroutines.AppDispatchersProvider
+import com.zhiroke.core.common.coroutines.DispatchersProvider
 import com.zhiroke.domain.models.BankCard
 import com.zhiroke.features.mywallet.presentation.cardcarousel.interactors.AddCardInteractor
 import com.zhiroke.features.mywallet.presentation.cardcarousel.interactors.DeleteCardInteractor
@@ -11,11 +13,13 @@ import com.zhiroke.features.mywallet.presentation.cardcarousel.interactors.SaveC
 
 internal class CardCarouselViewModel(
     reducer: CardCarouselReducer,
+    dispatchers: DispatchersProvider,
     loadCardsInteractor: LoadCardsInteractor?,
     addCardInteractor: AddCardInteractor?,
     saveCardInteractor: SaveCardInteractor?,
     deleteCardInteractor: DeleteCardInteractor?,
 ) : BaseViewModel<CardCarouselState, CardCarouselEvent>(
+    dispatchers = dispatchers,
     reducer = reducer,
     interactors = setOfNotNull(loadCardsInteractor, addCardInteractor, saveCardInteractor, deleteCardInteractor)
 ) {
@@ -45,6 +49,7 @@ internal class CardCarouselViewModel(
 @RestrictTo(RestrictTo.Scope.TESTS)
 internal fun getDummyCardCarouselViewModel(): CardCarouselViewModel {
     return CardCarouselViewModel(
+        dispatchers = AppDispatchersProvider(),
         reducer = CardCarouselReducer(),
         loadCardsInteractor = null,
         addCardInteractor = null,
