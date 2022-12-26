@@ -1,19 +1,24 @@
 package com.zhiroke.core.navigation.utils
 
-import androidx.navigation.NavController
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
+import com.zhiroke.core.navigation.domain.NavigationManager
 import org.koin.core.context.GlobalContext
-import org.koin.dsl.binds
-import org.koin.dsl.module
 
-fun setNavControllerIntoDi(navController: NavHostController) {
-    GlobalContext.get().loadModules(modules = listOf(
-        module {
-            single { navController } binds arrayOf(NavController::class, NavHostController::class)
-        }
-    ), allowOverride = true)
+fun attachNavController(navController: NavHostController) {
+    getNavigationManager().attachNavController(navController = navController)
 }
 
-fun getNavController(): NavHostController {
-    return GlobalContext.get().get<NavHostController>()
+fun detachNavController() {
+    getNavigationManager().detachNavController()
+}
+
+@Composable
+fun rememberNavigationManager(): NavigationManager {
+    return remember(calculation = ::getNavigationManager)
+}
+
+private fun getNavigationManager(): NavigationManager {
+    return GlobalContext.get().get<NavigationManager>()
 }

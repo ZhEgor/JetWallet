@@ -1,8 +1,8 @@
 package com.zhiroke.jetwallet
 
 import android.app.Application
-import com.zhiroke.jetwallet.domain.initmanager.InitManager
-import com.zhiroke.jetwallet.domain.initmanager.KoinInitManager
+import com.zhiroke.jetwallet.utils.initmanager.InitManager
+import com.zhiroke.jetwallet.utils.initmanager.KoinInitManager
 
 class App : Application() {
 

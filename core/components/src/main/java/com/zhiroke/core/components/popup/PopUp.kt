@@ -39,7 +39,7 @@ fun PopUp(
         }
     )
 
-    BackHandler(onBack = onHide)
+    BackHandler(onBack = onHide, enabled = popUpState.isShown)
 
     LaunchedEffect(key1 = popUpState) {
         if (popUpState.isShown) {
