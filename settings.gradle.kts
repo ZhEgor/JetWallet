@@ -14,9 +14,11 @@ dependencyResolutionManagement {
 }
 rootProject.name = "JetWallet"
 include(":app")
+include(":core:common")
 include(":core:components")
 include(":core:navigation")
 include(":core:theme")
 include(":domain")
 include(":data")
 include(":features:mywallet")
+include(":features:cardrecognition")

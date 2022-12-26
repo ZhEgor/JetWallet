@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rational_permission_request_title">Permission request</string>
+    <string name="rational_permission_request_confirm_button">OK</string>
+    <string name="rational_permission_request_rational_text">Camera permission required for the bank card recognition feature to be available.</string>
+</resources>
