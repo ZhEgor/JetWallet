@@ -73,3 +73,45 @@ dependencies {
     androidTestImplementation(Libs.Test.espresso)
     androidTestImplementation(Libs.Compose.testJunit4)
 }
+
+tasks.register("generateComposeMetrics") {
+    dependsOn("assembleRelease")
+}
+
+/*
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach { compile ->
+
+
+
+    // Gradle hack ahead, we use of absolute paths, but is OK here because we do it in
+    // doFirst which happens after Gradle task input snapshotting. AGP does the same.
+    compile.doFirst {
+        val kotlinPlugin = configuration.incoming.artifactView { view ->
+            view.attributes { attributes ->
+                attributes.attribute(
+                    Attribute.of("artifactType", String::class.java),
+                    ArtifactTypeDefinition.JAR_TYPE
+                )
+            }
+        }.files
+
+        compile.kotlinOptions.freeCompilerArgs += "-Xplugin=${kotlinPlugin.first()}"
+
+        val metricsDest = File(libraryMetricsDirectory, "compose")
+        compile.kotlinOptions.freeCompilerArgs +=
+            listOf(
+                "-P",
+                "$composeMetricsOption=${metricsDest.absolutePath}"
+            )
+        val reportsDest = File(libraryReportsDirectory, "compose")
+        compile.kotlinOptions.freeCompilerArgs +=
+            listOf(
+                "-P",
+                "$composeReportsOption=${reportsDest.absolutePath}"
+            )
+        if (shouldPublish) {
+            compile.kotlinOptions.freeCompilerArgs +=
+                listOf("-P", composeSourceOption)
+        }
+    }
+}*/
