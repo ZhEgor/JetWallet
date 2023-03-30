@@ -48,4 +48,5 @@ dependencies {
     implementation(Libs.Permissions.accompanist)
 
     implementation(Libs.Koin.core)
+    implementation(Libs.Koin.android)
 }

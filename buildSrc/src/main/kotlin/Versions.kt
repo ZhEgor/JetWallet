@@ -14,4 +14,6 @@ object Versions {
     const val composeCompiler = "1.3.2"
     const val accompanist = "0.28.0"
     const val material3 = "1.1.0-alpha02"
+    const val biometric = "1.2.0-alpha04"
+    const val securityCrypto = "1.1.0-alpha04"
 }

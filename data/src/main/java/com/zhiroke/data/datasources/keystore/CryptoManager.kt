@@ -1,4 +1,4 @@
-package com.zhiroke.data.keystore
+package com.zhiroke.data.datasources.keystore
 
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties

@@ -12,8 +12,6 @@ class App : Application() {
     }
 
     private fun initApp() {
-        listOf<InitManager>(KoinInitManager(application = this@App)).forEach { initManager ->
-            initManager.init()
-        }
+        listOf<InitManager>(KoinInitManager(application = this@App)).forEach(InitManager::init)
     }
 }

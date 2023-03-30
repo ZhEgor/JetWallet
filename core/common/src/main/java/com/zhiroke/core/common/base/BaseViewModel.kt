@@ -12,12 +12,17 @@ import kotlinx.coroutines.flow.update
 abstract class BaseViewModel<State: BaseState, Event : BaseEvent>(
     private val dispatchers: DispatchersProvider,
     private val reducer: BaseReducer<State>,
-    private val interactors: Set<BaseInteractor<State, Event>>
+    private val interactors: Set<BaseInteractor<State, Event>>,
+    initialEvent: Event
 ) : ViewModel() {
 
     private val currentSubscriptions: HashMap<SubscriptionInteractor<State, Event>, Job> = hashMapOf()
     private val _state = MutableStateFlow(reducer.initialState)
     val state: StateFlow<State> get() = _state
+
+    init {
+        sendEvent(event = initialEvent)
+    }
 
     @Suppress("UNCHECKED_CAST")
     protected fun sendEvent(event: Event) {

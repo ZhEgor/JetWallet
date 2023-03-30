@@ -21,14 +21,9 @@ internal class CardCarouselViewModel(
 ) : BaseViewModel<CardCarouselState, CardCarouselEvent>(
     dispatchers = dispatchers,
     reducer = reducer,
-    interactors = setOfNotNull(loadCardsInteractor, addCardInteractor, saveCardInteractor, deleteCardInteractor)
+    interactors = setOfNotNull(loadCardsInteractor, addCardInteractor, saveCardInteractor, deleteCardInteractor),
+    initialEvent = CardCarouselEvent.LoadCards
 ) {
-
-    init {
-        loadCards()
-    }
-
-    private fun loadCards() = sendEvent(event = CardCarouselEvent.LoadCards)
 
     fun showAddPopUp() = sendEvent(event = CardCarouselEvent.ChangeStateOfAddPopUp(show = true))
 

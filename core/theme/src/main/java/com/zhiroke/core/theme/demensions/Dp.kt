@@ -13,4 +13,6 @@ val dp_24 = 24.dp
 val dp_32 = 32.dp
 val dp_48 = 48.dp
 val dp_64 = 64.dp
+val dp_80 = 80.dp
 val dp_96 = 96.dp
+val dp_360 = 360.dp

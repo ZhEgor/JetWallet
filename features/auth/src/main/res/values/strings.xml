@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dont_remember_pin">Don\'t remember your PIN?</string>
+    <string name="enter_pin_code">Enter PIN code</string>
+    <string name="biometric_title">Scan to log in</string>
+    <string name="biometric_negative_btn">Enter PIN code</string>
+    <string name="set_pin_code">Set PIN code</string>
+    <string name="confirm_pin_code">Confirm PIN code</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="btn_back">Back</string>
+    <string name="error_to_many_attempts">Too many attempts. Please try again later.</string>
+    <string name="error_pins_dont_match">Entered PIN codes don\'t match, please try again.</string>
+    <string name="placeholder_try_again">Try again in %ds.</string>
+    <string name="placeholder_timer">" (%ds)"</string>
+    <string name="drop_data_warning">If you want to reset the PIN code, all your data in the application will be erased. Are you sure about this, there will be no possibility to restore the data?</string>
+    <string name="button_drop_data_cancel">No, cancel.</string>
+    <string name="button_drop_data_confirm">Yes, erase all app\'s data</string>
+</resources>

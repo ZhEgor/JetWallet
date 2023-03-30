@@ -1,10 +1,11 @@
 package com.zhiroke.jetwallet.utils.initmanager
 
 import android.app.Application
-import com.zhiroke.core.common.di.modules.coroutineModule
+import com.zhiroke.core.common.di.modules.commonModule
 import com.zhiroke.core.navigation.di.modules.navigationModule
 import com.zhiroke.data.di.modules.dataModule
 import com.zhiroke.domain.di.modules.repositoriesModule
+import com.zhiroke.features.auth.di.modules.authModules
 import com.zhiroke.features.mywallet.di.modules.myWalletModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -18,7 +19,8 @@ class KoinInitManager(private val application: Application) : InitManager {
                 dataModule(),
                 repositoriesModule(),
                 navigationModule(),
-                coroutineModule(),
+                commonModule(),
+                authModules(),
                 myWalletModules()
             )
         }

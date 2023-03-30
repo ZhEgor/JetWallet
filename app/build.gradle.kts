@@ -53,6 +53,7 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
     implementation(project(":features:mywallet"))
+    implementation(project(":features:auth"))
 
     implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.AndroidX.activityCompose)

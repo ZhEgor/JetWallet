@@ -6,7 +6,7 @@ import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 
-fun coroutineModule() = module {
+fun commonModule() = module {
 
     factoryOf(::AppDispatchersProvider) { bind<DispatchersProvider>() }
 

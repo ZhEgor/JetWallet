@@ -22,6 +22,7 @@ import com.zhiroke.core.theme.utils.MaterialColor
 @Composable
 fun PopUp(
     popUpState: PopUpState,
+    heightFraction: Float = 0.85f,
     onHide: () -> Unit,
     content: @Composable BoxScope.() -> Unit
 ) {
@@ -60,7 +61,7 @@ fun PopUp(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .fillMaxHeight(0.85f),
+                    .fillMaxHeight(fraction = heightFraction),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 

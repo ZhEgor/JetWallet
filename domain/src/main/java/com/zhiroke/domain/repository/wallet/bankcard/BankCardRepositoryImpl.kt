@@ -1,6 +1,6 @@
 package com.zhiroke.domain.repository.wallet.bankcard
 
-import com.zhiroke.data.room.dao.BankCardDao
+import com.zhiroke.data.datasources.room.dao.BankCardDao
 import com.zhiroke.domain.models.BankCard
 import com.zhiroke.domain.models.toLocal
 import com.zhiroke.domain.models.toUi

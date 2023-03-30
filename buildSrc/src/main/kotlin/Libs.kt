@@ -4,6 +4,7 @@ object Libs {
         const val coreKtx = "androidx.core:core-ktx:1.9.0"
         const val appCompat = "androidx.appcompat:appcompat:1.5.1"
         const val activityCompose = "androidx.activity:activity-compose:1.6.1"
+        const val biometric = "androidx.biometric:biometric-ktx:${Versions.biometric}"
     }
 
     object Compose {
@@ -58,6 +59,10 @@ object Libs {
 
     object SqlCipher {
         const val cipher = "net.zetetic:android-database-sqlcipher:${Versions.sqlcipher}"
+    }
+
+    object Security {
+        const val crypto = "androidx.security:security-crypto:${Versions.securityCrypto}"
     }
 
     object Navigation {

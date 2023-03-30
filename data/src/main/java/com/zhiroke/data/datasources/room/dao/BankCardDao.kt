@@ -1,4 +1,4 @@
-package com.zhiroke.data.room.dao
+package com.zhiroke.data.datasources.room.dao
 
 import androidx.room.Dao
 import androidx.room.Query
@@ -15,4 +15,7 @@ interface BankCardDao : BaseDao<BankCardLocal> {
 
     @Query("SELECT * FROM ${BankCardLocal.TABLE_NAME}")
     fun readAll(): Flow<List<BankCardLocal>>
+
+    @Query("DELETE FROM ${BankCardLocal.TABLE_NAME}")
+    fun dropTable()
 }

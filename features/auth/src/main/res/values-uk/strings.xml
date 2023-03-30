@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dont_remember_pin">Не пом\'ятаєте ваш пін?</string>
+    <string name="enter_pin_code">Введіть ПІН-код</string>
+    <string name="biometric_title">Відскануйте, щоб увійти</string>
+    <string name="biometric_negative_btn">Ввести ПІН-код</string>
+    <string name="set_pin_code">Задати ПІН-код</string>
+    <string name="confirm_pin_code">Підтвердіть ПІН-код</string>
+    <string name="btn_next">Наступний</string>
+    <string name="btn_confirm">Підтвердити</string>
+    <string name="btn_back">Назад</string>
+    <string name="error_to_many_attempts">Забагато спроб. Зачекайте щоб повторити.</string>
+    <string name="error_pins_dont_match">Введенні ПІН-коди відрізняються, будь ласка спробуйте ще раз.</string>
+    <string name="placeholder_try_again">Повторіть спробу через %dс.</string>
+    <string name="placeholder_timer">" (%dс)"</string>
+    <string name="drop_data_warning">Якщо ви хочите скинути ПІН-код, тоді усі ваші дані у додатку будуть видалені. Ви впевнині в цьому, можливості відновити дані не буде?</string>
+    <string name="button_drop_data_cancel">Ні, не треба.</string>
+    <string name="button_drop_data_confirm">Так, видили усі моі дані у додатку</string>
+</resources>

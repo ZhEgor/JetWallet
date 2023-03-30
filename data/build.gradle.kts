@@ -48,6 +48,7 @@ dependencies {
     implementation(Libs.Room.ktx)
     kapt(Libs.Room.compiler)
     implementation(Libs.SqlCipher.cipher)
+    implementation(Libs.Security.crypto)
 
     implementation(Libs.Koin.core)
     implementation(Libs.Koin.android)
