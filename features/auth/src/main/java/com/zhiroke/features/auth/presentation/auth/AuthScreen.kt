@@ -15,7 +15,6 @@ import com.zhiroke.core.components.toasts.ErrorToast
 import com.zhiroke.core.theme.demensions.dp_16
 import com.zhiroke.core.theme.demensions.dp_32
 import com.zhiroke.core.theme.demensions.dp_64
-import com.zhiroke.core.theme.demensions.dp_96
 import com.zhiroke.core.theme.utils.MaterialTypography
 import com.zhiroke.features.auth.R
 import com.zhiroke.features.auth.presentation.auth.components.buttons.TertiaryTextButton
@@ -96,7 +95,7 @@ private fun BoxScope.SetPINBlock(viewModel: AuthViewModel, state: AuthState.SetP
 
     TertiaryTextButton(
         modifier = Modifier
-            .size(width = dp_96, height = dp_64)
+            .height(height = dp_64)
             .align(Alignment.TopEnd)
             .padding(top = dp_16, end = dp_16),
         resId = R.string.btn_next,
@@ -140,7 +139,6 @@ private fun BoxScope.ConfirmPINBlock(viewModel: AuthViewModel, state: AuthState.
 
     TertiaryTextButton(
         modifier = Modifier
-            .size(width = dp_96, height = dp_64)
             .align(Alignment.TopStart)
             .padding(top = dp_16, start = dp_16),
         resId = R.string.btn_back,
@@ -151,7 +149,7 @@ private fun BoxScope.ConfirmPINBlock(viewModel: AuthViewModel, state: AuthState.
 
     TertiaryTextButton(
         modifier = Modifier
-            .size(width = dp_96, height = dp_64)
+            .height(height = dp_64)
             .align(Alignment.TopEnd)
             .padding(top = dp_16, end = dp_16),
         resId = R.string.btn_confirm,

@@ -1,13 +1,12 @@
 package com.zhiroke.features.auth.utils.managers
 
 import android.os.Build
-import android.util.Log
-import android.widget.Toast
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
+import com.zhiroke.core.common.utils.vibrate
 import com.zhiroke.features.auth.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -44,17 +43,17 @@ class BiometricAuthManager {
 
                     override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                         super.onAuthenticationError(errorCode, errString)
-                        if (errorCode == 7) {
-                            Toast.makeText(activity, errString, Toast.LENGTH_SHORT).show()
-                        }
-                        Log.d("JET_TAG", "Authentication error: $errString, errorCode: $errorCode")
                         continuation.resumeWith(Result.success(errorCode))
                     }
 
                     override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                         super.onAuthenticationSucceeded(result)
-                        Log.d("JET_TAG", "Authentication succeeded!")
                         continuation.resumeWith(Result.success(null))
+                    }
+
+                    override fun onAuthenticationFailed() {
+                        super.onAuthenticationFailed()
+                        activity.vibrate()
                     }
                 }
             )

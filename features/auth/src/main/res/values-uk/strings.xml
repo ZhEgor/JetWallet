@@ -6,7 +6,7 @@
     <string name="biometric_negative_btn">Ввести ПІН-код</string>
     <string name="set_pin_code">Задати ПІН-код</string>
     <string name="confirm_pin_code">Підтвердіть ПІН-код</string>
-    <string name="btn_next">Наступний</string>
+    <string name="btn_next">Далі</string>
     <string name="btn_confirm">Підтвердити</string>
     <string name="btn_back">Назад</string>
     <string name="error_to_many_attempts">Забагато спроб. Зачекайте щоб повторити.</string>
@@ -15,5 +15,5 @@
     <string name="placeholder_timer">" (%dс)"</string>
     <string name="drop_data_warning">Якщо ви хочите скинути ПІН-код, тоді усі ваші дані у додатку будуть видалені. Ви впевнині в цьому, можливості відновити дані не буде?</string>
     <string name="button_drop_data_cancel">Ні, не треба.</string>
-    <string name="button_drop_data_confirm">Так, видили усі моі дані у додатку</string>
+    <string name="button_drop_data_confirm">Так, видали всі дані додатку</string>
 </resources>
