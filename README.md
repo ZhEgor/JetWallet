@@ -46,17 +46,18 @@ The app has structure:
   - navigation
   - theme
   - components
+  - cardrecognition
 - data
 - domain
-- features
+- presentation
   - mywallet
-  - cardrecognition
+  - auth
 - buildSrc
 
 ### UI: 
 - The app supports **DarkTheme**, **LightTheme** and **DynamicTheme**.
 
-- Below you can see genereted compose metrics report for **:features:mywallet** module, for more information on how to get this report follow the [link](https://github.com/androidx/androidx/blob/08c6116/compose/compiler/design/compiler-metrics.md).
+- Below you can see generated compose metrics report for **:presentation:mywallet** module, for more information on how to get this report follow the [link](https://github.com/androidx/androidx/blob/08c6116/compose/compiler/design/compiler-metrics.md).
 
 <details> 
   <summary>mywallet_debug-composables.txt</summary>
@@ -310,48 +311,48 @@ stable class Empty {
   <pre>
     <code>
 package,name,composable,skippable,restartable,readonly,inline,isLambda,hasDefaults,defaultsGroup,groups,calls,
-com.zhiroke.features.mywallet.presentation.cardcarousel.CardCarouselRoute,CardCarouselRoute,1,1,1,0,0,0,0,0,1,2,
-com.zhiroke.features.mywallet.presentation.cardcarousel.CardCarouselScreen,CardCarouselScreen,1,1,1,0,0,0,0,0,1,2,
-com.zhiroke.features.mywallet.presentation.cardcarousel.CardsAreLoaded,CardsAreLoaded,1,1,1,0,0,0,0,0,1,2,
-com.zhiroke.features.mywallet.presentation.cardcarousel.CardsAreLoading,CardsAreLoading,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.CardsAreEmpty,CardsAreEmpty,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.CardCarouselScreenPreview,CardCarouselScreenPreview,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.button.AddCardButton,AddCardButton,1,1,1,0,0,0,0,0,1,5,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.BankCard,BankCard,1,1,1,0,0,0,0,0,1,3,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.EditableBankCard,EditableBankCard,1,1,1,0,0,0,0,0,1,3,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.PickSkinButton,PickSkinButton,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.DeleteSkinButton,DeleteSkinButton,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.ShimmeringBankCard,ShimmeringBankCard,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.ImmutableBackSideCard,ImmutableBackSideCard,1,1,1,0,0,0,0,0,1,2,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.ImmutableBackSideCardPreview,ImmutableBackSideCardPreview,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.ShimmeringBackSideCard,ShimmeringBackSideCard,1,1,1,0,0,0,0,0,1,2,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.ShimmeringBackSideCardPreview,ShimmeringBackSideCardPreview,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.StatelessBackSideCard,StatelessBackSideCard,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.components.AuthorizedSignatureStripe,AuthorizedSignatureStripe,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.components.MagneticStripe,MagneticStripe,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.components.SignatureAndVerificationNumberRow,SignatureAndVerificationNumberRow,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.components.VerificationNumberContainer,VerificationNumberContainer,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.back.components.VerificationNumberText,VerificationNumberText,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.common.CardTextContainer,CardTextContainer,1,1,1,0,0,0,0,0,1,3,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.EmptyBankCard,EmptyBankCard,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.ImmutableFrontSideCard,ImmutableFrontSideCard,1,1,1,0,0,0,0,0,1,2,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.FrontSideCardPreview,FrontSideCardPreview,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.ShimmeringFrontSideCard,ShimmeringFrontSideCard,1,1,1,0,0,0,0,0,1,2,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.ShimmeringFrontSideCardPreview,ShimmeringFrontSideCardPreview,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.StatelessFrontSideCard,StatelessFrontSideCard,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.CardNumberContainer,CardNumberContainer,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.CardNumberText,CardNumberText,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.CardholderContainer,CardholderContainer,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.CardholderText,CardholderText,1,1,1,0,0,0,0,0,1,2,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.ExpirationDateContainer,ExpirationDateContainer,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.ExpirationDateText,ExpirationDateText,1,1,1,0,0,0,0,0,1,2,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.SkinContainer,SkinContainer,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.card.front.components.ToolsContainer,ToolsContainer,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.cardwrapper.RotatingCardWrapper,RotatingCardWrapper,1,1,1,0,0,0,1,0,2,8,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups.AddCardPopUp,AddCardPopUp,1,1,1,0,0,0,0,0,1,4,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups.EditCardPopUp,EditCardPopUp,1,1,1,0,0,0,0,0,1,2,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups.components.CardRecognizerPage,CardRecognizerPage,1,1,1,0,0,0,0,0,1,1,
-com.zhiroke.features.mywallet.presentation.cardcarousel.components.popups.components.EditableCardPage,EditableCardPage,1,1,1,0,0,0,0,0,1,3,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.CardCarouselRoute,CardCarouselRoute,1,1,1,0,0,0,0,0,1,2,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.CardCarouselScreen,CardCarouselScreen,1,1,1,0,0,0,0,0,1,2,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.CardsAreLoaded,CardsAreLoaded,1,1,1,0,0,0,0,0,1,2,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.CardsAreLoading,CardsAreLoading,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.CardsAreEmpty,CardsAreEmpty,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.CardCarouselScreenPreview,CardCarouselScreenPreview,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.button.AddCardButton,AddCardButton,1,1,1,0,0,0,0,0,1,5,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.BankCard,BankCard,1,1,1,0,0,0,0,0,1,3,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.EditableBankCard,EditableBankCard,1,1,1,0,0,0,0,0,1,3,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.PickSkinButton,PickSkinButton,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.DeleteSkinButton,DeleteSkinButton,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.ShimmeringBankCard,ShimmeringBankCard,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.back.ImmutableBackSideCard,ImmutableBackSideCard,1,1,1,0,0,0,0,0,1,2,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.back.ImmutableBackSideCardPreview,ImmutableBackSideCardPreview,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.back.ShimmeringBackSideCard,ShimmeringBackSideCard,1,1,1,0,0,0,0,0,1,2,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.back.ShimmeringBackSideCardPreview,ShimmeringBackSideCardPreview,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.back.StatelessBackSideCard,StatelessBackSideCard,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.back.components.AuthorizedSignatureStripe,AuthorizedSignatureStripe,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.back.components.MagneticStripe,MagneticStripe,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.back.components.SignatureAndVerificationNumberRow,SignatureAndVerificationNumberRow,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.back.components.VerificationNumberContainer,VerificationNumberContainer,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.back.components.VerificationNumberText,VerificationNumberText,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.common.CardTextContainer,CardTextContainer,1,1,1,0,0,0,0,0,1,3,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.EmptyBankCard,EmptyBankCard,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.ImmutableFrontSideCard,ImmutableFrontSideCard,1,1,1,0,0,0,0,0,1,2,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.FrontSideCardPreview,FrontSideCardPreview,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.ShimmeringFrontSideCard,ShimmeringFrontSideCard,1,1,1,0,0,0,0,0,1,2,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.ShimmeringFrontSideCardPreview,ShimmeringFrontSideCardPreview,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.StatelessFrontSideCard,StatelessFrontSideCard,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.components.CardNumberContainer,CardNumberContainer,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.components.CardNumberText,CardNumberText,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.components.CardholderContainer,CardholderContainer,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.components.CardholderText,CardholderText,1,1,1,0,0,0,0,0,1,2,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.components.ExpirationDateContainer,ExpirationDateContainer,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.components.ExpirationDateText,ExpirationDateText,1,1,1,0,0,0,0,0,1,2,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.components.SkinContainer,SkinContainer,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.card.front.components.ToolsContainer,ToolsContainer,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.cardwrapper.RotatingCardWrapper,RotatingCardWrapper,1,1,1,0,0,0,1,0,2,8,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.popups.AddCardPopUp,AddCardPopUp,1,1,1,0,0,0,0,0,1,4,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.popups.EditCardPopUp,EditCardPopUp,1,1,1,0,0,0,0,0,1,2,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.popups.components.CardRecognizerPage,CardRecognizerPage,1,1,1,0,0,0,0,0,1,1,
+com.zhiroke.presentation.mywallet.presentation.cardcarousel.components.popups.components.EditableCardPage,EditableCardPage,1,1,1,0,0,0,0,0,1,3,
     </code>
   </pre>
 </details>
