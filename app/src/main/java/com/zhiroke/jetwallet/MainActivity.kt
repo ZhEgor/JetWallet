@@ -1,17 +1,19 @@
 package com.zhiroke.jetwallet
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.compose.setContent
 import androidx.fragment.app.FragmentActivity
 import com.zhiroke.core.navigation.utils.detachNavController
+import com.zhiroke.jetwallet.ui.JetWallet
 import com.zhiroke.presentation.auth.utils.managers.attachBiometricAuthManager
 import com.zhiroke.presentation.auth.utils.managers.detachBiometricAuthManager
-import com.zhiroke.jetwallet.ui.JetWallet
 
 class MainActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
         setContent(content = { JetWallet() })
         attachBiometricAuthManager(activity = this)
     }
