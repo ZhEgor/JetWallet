@@ -49,9 +49,4 @@ dependencies {
 
     implementation(Libs.Koin.core)
     implementation(Libs.Koin.android)
-
-    testImplementation(Libs.Test.jUnit)
-    androidTestImplementation(Libs.Test.androidJUnit)
-    androidTestImplementation(Libs.Test.espresso)
-    androidTestImplementation(Libs.Compose.testJunit4)
 }

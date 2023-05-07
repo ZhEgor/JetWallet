@@ -28,7 +28,7 @@ fun dataModule() = module {
 
 }
 
-private fun provideWalletRoomDatabase(context: Context, passwordProvider: PasswordProvider): WalletDatabase {
+internal fun provideWalletRoomDatabase(context: Context, passwordProvider: PasswordProvider): WalletDatabase {
     val password = passwordProvider.getPassword(fileName = "wallet_db_password.bin")
     return Room.databaseBuilder(context, WalletDatabase::class.java, WALLET_DATABASE_NAME).run {
         openHelperFactory(SupportFactory(password))
@@ -40,7 +40,7 @@ private fun provideBankCardDao(walletDatabase: WalletDatabase): BankCardDao {
     return walletDatabase.getBankCardDao()
 }
 
-private fun provideEncryptedSharedPreferences(context: Context): SharedPreferences {
+internal fun provideEncryptedSharedPreferences(context: Context): SharedPreferences {
     val masterKey = MasterKey.Builder(context)
         .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
         .build()
