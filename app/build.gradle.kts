@@ -1,6 +1,16 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     kotlin("android")
+}
+
+val signingProps = Properties()
+val singingPropertiesFile = rootProject.file("app/signing-configs.properties")
+
+if (singingPropertiesFile.exists()) {
+    signingProps.load(FileInputStream(singingPropertiesFile))
 }
 
 android {
@@ -22,10 +32,44 @@ android {
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
+    signingConfigs {
+        register("prod") {
+            storeFile = signingProps["prodSigningFileName"]?.let(rootProject::file)
+            storePassword = "${signingProps["prodKeystorePassword"]}"
+            keyAlias = "${signingProps["prodAlias"]}"
+            keyPassword = "${signingProps["prodAliasPassword"]}"
+        }
+        register("dev") {
+            storeFile = signingProps["devSigningFileName"]?.let(rootProject::file)
+            storePassword = "${signingProps["devKeystorePassword"]}"
+            keyAlias = "${signingProps["devAlias"]}"
+            keyPassword = "${signingProps["devAliasPassword"]}"
+        }
+    }
+
+    flavorDimensions("default")
+    productFlavors {
+        register("prod") {
+            dimension = "default"
+            resValue("string", "app_name", "JetWallet")
+            signingConfig = signingConfigs.getByName("prod")
+        }
+        register("dev") {
+            dimension = "default"
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = "-dev"
+            resValue("string", "app_name", "JetWallet Dev")
+            signingConfig = signingConfigs.getByName("dev")
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11

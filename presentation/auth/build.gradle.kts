@@ -17,13 +17,20 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
     }
+
+    flavorDimensions("default")
+    productFlavors {
+        register("prod")
+        register("dev")
+    }
+
     buildFeatures {
         compose = true
     }
