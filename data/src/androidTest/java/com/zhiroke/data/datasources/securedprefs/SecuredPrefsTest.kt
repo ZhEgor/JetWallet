@@ -6,6 +6,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
 import com.zhiroke.data.di.modules.provideEncryptedSharedPreferences
 import kotlinx.coroutines.runBlocking
+import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -38,5 +39,10 @@ class SecuredPrefsTest {
             securedPref.setPIN(pin = pin)
             assertThat(securedPref.getPIN()).isEqualTo(pin)
         }
+    }
+
+    @After
+    fun deleteSharedPrefs() {
+        context.deleteSharedPreferences("secured_user_prefs")
     }
 }

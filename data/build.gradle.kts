@@ -62,5 +62,6 @@ dependencies {
 
     androidTestImplementation(Libs.Test.jUnit)
     androidTestImplementation(Libs.Test.androidJUnit)
+    androidTestImplementation(Libs.Test.espresso)
     androidTestImplementation(Libs.Test.googleTruth)
 }
