@@ -1,21 +1,21 @@
 package com.zhiroke.data.util
 
 import android.content.Context
-import com.zhiroke.data.datasources.keystore.CryptoManager
+import com.zhiroke.data.datasources.keystore.KeyStoreHelper
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.security.SecureRandom
 
-class PasswordProvider(private val context: Context, private val cryptoManager: CryptoManager) {
+class PasswordProvider(private val context: Context, private val keyStoreHelper: KeyStoreHelper) {
 
     fun getPassword(fileName: String): ByteArray {
         val file = File(context.filesDir, fileName)
         return if (file.exists()) {
-            cryptoManager.decrypt(inputStream = FileInputStream(file))
+            keyStoreHelper.decrypt(inputStream = FileInputStream(file))
         } else {
             val password = generatePassword()
-            cryptoManager.encrypt(bytes = password, outputStream = FileOutputStream(file))
+            keyStoreHelper.encrypt(bytes = password, outputStream = FileOutputStream(file))
             password
         }
     }

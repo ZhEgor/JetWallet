@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import androidx.room.Room
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import com.zhiroke.data.datasources.keystore.CryptoManager
+import com.zhiroke.data.datasources.keystore.KeyStoreHelper
 import com.zhiroke.data.datasources.room.dao.BankCardDao
 import com.zhiroke.data.datasources.room.database.WALLET_DATABASE_NAME
 import com.zhiroke.data.datasources.room.database.WalletDatabase
@@ -22,7 +22,7 @@ fun dataModule() = module {
     factoryOf(::provideWalletRoomDatabase)
     factoryOf(::provideBankCardDao)
     factoryOf(::provideEncryptedSharedPreferences)
-    factoryOf(::CryptoManager)
+    factoryOf(::KeyStoreHelper)
     factoryOf(::PasswordProvider)
     factoryOf(::SecuredPrefsImpl) { bind<SecuredPrefs>() }
 
